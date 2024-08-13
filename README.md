@@ -1,1 +1,1 @@
-# Dashboard_That_Summarizes_Results_Of_Tests_Of_Pipeline_Of_Data_Of_RECmint
+# Dashboard_That_Summarizes_Test_Results_Of_RECmint_Data_Pipeline
