@@ -1,10 +1,8 @@
-from row_with_names_of_databases import row_with_names_of_databases
 from row_with_graphs_of_frequency_of_energy_vs_energy import row_with_graphs_of_frequency_of_energy_vs_energy
 from Table import Table
 
 
 list_of_rows = [
-    row_with_names_of_databases,
     row_with_graphs_of_frequency_of_energy_vs_energy
 ]
 

@@ -1,10 +1,8 @@
-from row_with_names_of_databases import row_with_names_of_databases
 from row_with_samples_of_table_Generators_of_database import row_with_samples_of_table_Generators_of_database
 from Table import Table
 
 
 list_of_rows = [
-    row_with_names_of_databases,
     row_with_samples_of_table_Generators_of_database
 ]
 
