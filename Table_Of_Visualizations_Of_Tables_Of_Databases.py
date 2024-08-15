@@ -1,15 +1,17 @@
-from Row_With_Names_Of_Databases import Row_With_Names_Of_Databases
-from Row_With_Graphs_Of_Frequency_Of_Energy_Vs_Energy import Row_With_Graphs_Of_Frequency_Of_Energy_Vs_Energy
+from row_with_names_of_databases import row_with_names_of_databases
+from row_with_samples_of_table_Generators_of_database import row_with_samples_of_table_Generators_of_database
+from row_with_graphs_of_frequency_of_energy_vs_energy import row_with_graphs_of_frequency_of_energy_vs_energy
 from Table import Table
 
 
-class Table_Of_Visualizations_Of_Tables_Of_Databases(Table):
+list_of_rows = [
+    row_with_names_of_databases,
+    row_with_samples_of_table_Generators_of_database,
+    row_with_graphs_of_frequency_of_energy_vs_energy
+]
 
-    def __init__(self):
 
-        children = [
-            Row_With_Names_Of_Databases(),
-            Row_With_Graphs_Of_Frequency_Of_Energy_Vs_Energy()
-        ]
-
-        super().__init__(children = children, width = 100)
+table_of_visualizations_of_table_of_databases = Table(
+    children = list_of_rows,
+    width = 100
+)

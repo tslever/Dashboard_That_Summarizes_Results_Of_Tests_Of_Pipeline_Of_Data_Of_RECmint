@@ -1,12 +1,17 @@
 from Cell import Cell
 from dash import html
 
-class Row_With_Names_Of_Databases(html.Tr):
 
-    def __init__(self):
-        super().__init__(
-            children = [
-                Cell(children = "AirTable", width = 50),
-                Cell(children = "RECBus", width = 50)
-            ]
-        )
+list_of_children = [
+    Cell(
+        children = "AirTable",
+        width = 50
+    ),
+    Cell(
+        children = "RECBus",
+        width = 50
+    )
+]
+
+
+row_with_names_of_databases = html.Tr(list_of_children)

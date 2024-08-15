@@ -1,0 +1,6 @@
+from Loader import loader
+
+
+excerpt_of_table_Generators_of_AirTable = loader.create_excerpt_of_table_Generators_of_database_AirTable()
+
+excerpt_of_table_Generators_of_RECBus = loader.create_excerpt_of_table_Generators_of_database_RECBus()
