@@ -5,6 +5,27 @@ import pandas as pd
 
 class Loader():
 
+
+    def count_rows_of_table_Generators_of_database_AirTable_without_key_sysID(self):
+        count = 0
+        with open("C:/Users/Tom/Documents/RecMint/data/AirTable/Generators.ndjson", 'r') as file:
+            for line in file:
+                JSON_object = json.loads(line)
+                if "sysID" not in JSON_object:
+                    count += 1
+        return count
+    
+
+    def count_rows_of_table_Generators_of_database_RECBus_without_key_sysid(self):
+        data_frame = pd.read_csv(
+            filepath_or_buffer = "C:/Users/Tom/Documents/RecMint/data/RECBus/Generators.csv",
+            header = 0,
+            nrows = 1
+        )
+        count = data_frame["sysid"].isna().sum()
+        return count
+
+
     def create_excerpt_of_table_Generators_of_database_AirTable(self):
         data = []
         with open("C:/Users/Tom/Documents/RecMint/data/AirTable/Generators.ndjson", 'r') as file:
