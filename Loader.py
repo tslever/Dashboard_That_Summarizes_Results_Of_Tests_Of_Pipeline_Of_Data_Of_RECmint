@@ -35,15 +35,6 @@ class Loader():
         return count
     
 
-    def count_rows_of_table_Generators_of_database_RECBus(self):
-        data_frame = pd.read_csv(
-            filepath_or_buffer = "C:/Users/Tom/Documents/RecMint/data/RECBus/Generators.csv",
-            header = 0
-        )
-        count = len(data_frame.index)
-        return count
-
-
     def count_rows_of_table_Generators_of_database_AirTable_without_key_sysID(self):
         count = 0
         with open("C:/Users/Tom/Documents/RecMint/data/AirTable/Generators.ndjson", 'r') as file:
@@ -51,6 +42,15 @@ class Loader():
                 JSON_object = json.loads(line)
                 if "sysID" not in JSON_object:
                     count += 1
+        return count
+
+
+    def count_rows_of_table_Generators_of_database_RECBus(self):
+        data_frame = pd.read_csv(
+            filepath_or_buffer = "C:/Users/Tom/Documents/RecMint/data/RECBus/Generators.csv",
+            header = 0
+        )
+        count = len(data_frame.index)
         return count
     
 
