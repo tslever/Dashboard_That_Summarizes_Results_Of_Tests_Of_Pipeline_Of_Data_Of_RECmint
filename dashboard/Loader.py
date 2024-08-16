@@ -10,7 +10,7 @@ class Loader():
         self.path_to_data = "C:/Users/Tom/Documents/RecMint/data/"
 
 
-    def calculate_number_of_generators_in_AirTable_that_do_not_correspond_to_generators_in_RECBus(self):
+    def create_dictionary_of_sets_of_system_IDs_in_table_Generators(self):
         JSON_object_representing_table_Generators_of_database_AirTable = None
         with open(self.path_to_data + "AirTable/Generators.ndjson") as file:
             JSON_object_representing_table_Generators_of_database_AirTable = ndjson.load(file)
@@ -25,12 +25,51 @@ class Loader():
             set(data_frame_Generators_of_database_AirTable["sysID"])
         set_of_system_IDs_in_table_Generators_of_database_RECBus = \
             set(data_frame_Generators_of_database_RECBus["sysid"])
+        dictionary_of_sets_of_systems_IDs_in_table_Generators = {
+            "set_of_system_IDs_in_table_Generators_of_database_AirTable": set_of_system_IDs_in_table_Generators_of_database_AirTable,
+            "set_of_system_IDs_in_table_Generators_of_database_RECBus": set_of_system_IDs_in_table_Generators_of_database_RECBus
+        }
+        return dictionary_of_sets_of_systems_IDs_in_table_Generators
+
+
+    def calculate_number_of_generators_in_AirTable_that_do_not_correspond_to_generators_in_RECBus(self):
+        dictionary_of_sets_of_systems_IDs_in_table_Generators = \
+            self.create_dictionary_of_sets_of_system_IDs_in_table_Generators()
+        set_of_system_IDs_in_table_Generators_of_database_AirTable = \
+            dictionary_of_sets_of_systems_IDs_in_table_Generators[
+                "set_of_system_IDs_in_table_Generators_of_database_AirTable"
+            ]
+        set_of_system_IDs_in_table_Generators_of_database_RECBus = \
+            dictionary_of_sets_of_systems_IDs_in_table_Generators[
+                "set_of_system_IDs_in_table_Generators_of_database_RECBus"
+            ]
+        
         set_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
             set_of_system_IDs_in_table_Generators_of_database_AirTable - \
             set_of_system_IDs_in_table_Generators_of_database_RECBus
         number_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
             len(set_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators)
         return number_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators
+    
+
+    def calculate_number_of_generators_in_RECBus_that_do_not_correspond_to_generators_in_AirTable(self):
+        dictionary_of_sets_of_systems_IDs_in_table_Generators = \
+            self.create_dictionary_of_sets_of_system_IDs_in_table_Generators()
+        set_of_system_IDs_in_table_Generators_of_database_AirTable = \
+            dictionary_of_sets_of_systems_IDs_in_table_Generators[
+                "set_of_system_IDs_in_table_Generators_of_database_AirTable"
+            ]
+        set_of_system_IDs_in_table_Generators_of_database_RECBus = \
+            dictionary_of_sets_of_systems_IDs_in_table_Generators[
+                "set_of_system_IDs_in_table_Generators_of_database_RECBus"
+            ]
+        
+        set_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
+            set_of_system_IDs_in_table_Generators_of_database_RECBus - \
+            set_of_system_IDs_in_table_Generators_of_database_AirTable
+        number_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
+            len(set_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators)
+        return number_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators
 
 
     def count_columns_of_table_Generators_of_database_AirTable(self):
