@@ -1,5 +1,5 @@
 import dash
-from div import div
+from dashboard.div import div
 
 
 class Factory():

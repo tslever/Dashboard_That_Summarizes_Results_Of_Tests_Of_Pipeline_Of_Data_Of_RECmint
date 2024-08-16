@@ -1,6 +1,6 @@
-from Cell import Cell
+from dashboard.Cell import Cell
 from dash import html
-from Loader import loader
+from dashboard.Loader import loader
 
 
 count_of_rows_of_table_Generators_of_database_AirTable_without_key_sysID = \
@@ -16,4 +16,4 @@ list_of_children = [
     Cell(count_of_rows_of_table_Generators_of_database_RECBus_without_key_sysid)
 ]
 
-row_with_counts_of_rows_missing_sysID_and_sysid = html.Tr(list_of_children)
+row_with_counts_of_rows_missing_system_ID = html.Tr(list_of_children)

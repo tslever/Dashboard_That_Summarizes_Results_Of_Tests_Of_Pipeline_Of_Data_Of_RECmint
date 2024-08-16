@@ -1,4 +1,4 @@
-from Cell import Cell
+from dashboard.Cell import Cell
 from dash import html
 
 
@@ -16,4 +16,4 @@ list_of_children = [
 ]
 
 
-row_with_label_statistics_for_database = html.Tr(list_of_children)
+row_with_label_Statistics_For_Database = html.Tr(list_of_children)

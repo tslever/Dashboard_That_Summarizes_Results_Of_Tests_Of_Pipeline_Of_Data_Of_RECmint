@@ -1,5 +1,5 @@
-from excerpts import excerpt_of_table_Generators_of_AirTable, excerpt_of_table_Generators_of_RECBus
-from Sample import Sample
+from dashboard.excerpts import excerpt_of_table_Generators_of_AirTable, excerpt_of_table_Generators_of_RECBus
+from dashboard.Sample import Sample
 
 
 sample_of_table_Generators_of_AirTable = Sample(

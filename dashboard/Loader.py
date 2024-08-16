@@ -10,6 +10,29 @@ class Loader():
         self.path_to_data = "C:/Users/Tom/Documents/RecMint/data/"
 
 
+    def calculate_number_of_generators_in_AirTable_that_do_not_correspond_to_generators_in_RECBus(self):
+        JSON_object_representing_table_Generators_of_database_AirTable = None
+        with open(self.path_to_data + "AirTable/Generators.ndjson") as file:
+            JSON_object_representing_table_Generators_of_database_AirTable = ndjson.load(file)
+        data_frame_Generators_of_database_AirTable = pd.DataFrame(
+            JSON_object_representing_table_Generators_of_database_AirTable
+        )
+        data_frame_Generators_of_database_RECBus = pd.read_csv(
+            filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
+            header = 0
+        )
+        set_of_system_IDs_in_table_Generators_of_database_AirTable = \
+            set(data_frame_Generators_of_database_AirTable["sysID"])
+        set_of_system_IDs_in_table_Generators_of_database_RECBus = \
+            set(data_frame_Generators_of_database_RECBus["sysid"])
+        set_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
+            set_of_system_IDs_in_table_Generators_of_database_AirTable - \
+            set_of_system_IDs_in_table_Generators_of_database_RECBus
+        number_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
+            len(set_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators)
+        return number_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators
+
+
     def count_columns_of_table_Generators_of_database_AirTable(self):
         maximum_number_of_keys = 0
         with open(self.path_to_data + "AirTable/Generators.ndjson", 'r') as file:

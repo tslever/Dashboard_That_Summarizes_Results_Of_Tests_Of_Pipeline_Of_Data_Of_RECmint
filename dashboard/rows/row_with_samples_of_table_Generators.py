@@ -1,6 +1,6 @@
-from Cell import Cell
+from dashboard.Cell import Cell
 from dash import html
-from samples import sample_of_table_Generators_of_AirTable, sample_of_table_Generators_of_RECBus
+from dashboard.samples import sample_of_table_Generators_of_AirTable, sample_of_table_Generators_of_RECBus
 
 
 list_of_children = [

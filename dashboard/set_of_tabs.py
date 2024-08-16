@@ -1,5 +1,5 @@
 from dash import dcc
-from tabs import tab_Contracts, tab_Generators
+from dashboard.tabs import tab_Contracts, tab_Generators
 
 
 list_of_tabs = [

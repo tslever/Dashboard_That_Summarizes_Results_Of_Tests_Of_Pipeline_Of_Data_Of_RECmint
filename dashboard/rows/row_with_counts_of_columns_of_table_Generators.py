@@ -1,6 +1,6 @@
-from Cell import Cell
+from dashboard.Cell import Cell
 from dash import html
-from Loader import loader
+from dashboard.Loader import loader
 
 
 count_of_columns_of_table_Generators_of_database_AirTable = \
@@ -16,4 +16,4 @@ list_of_children = [
     Cell(count_of_columns_of_table_Generators_of_database_RECBus)
 ]
 
-row_with_counts_of_columns_of_table_Generators_of_database = html.Tr(list_of_children)
+row_with_counts_of_columns_of_table_Generators = html.Tr(list_of_children)

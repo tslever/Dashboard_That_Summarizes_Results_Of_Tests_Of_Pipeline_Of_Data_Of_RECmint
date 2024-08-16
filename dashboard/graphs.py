@@ -1,5 +1,5 @@
 from dash import dcc
-from Loader import loader
+from dashboard.Loader import loader
 import numpy as np
 import plotly.express as px
 

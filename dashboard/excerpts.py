@@ -1,4 +1,4 @@
-from Loader import loader
+from dashboard.Loader import loader
 
 
 excerpt_of_table_Generators_of_AirTable = loader.create_excerpt_of_table_Generators_of_database_AirTable()
