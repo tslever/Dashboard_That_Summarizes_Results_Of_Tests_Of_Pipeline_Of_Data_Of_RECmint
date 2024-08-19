@@ -10,6 +10,27 @@ class Loader():
         self.path_to_data = "C:/Users/Tom/Documents/RecMint/data/"
 
 
+    def list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_sysID(self):
+        list_representing_table_Generators_of_database_AirTable = None
+        with open(self.path_to_data + "AirTable/Generators.ndjson", 'r') as file:
+            list_representing_table_Generators_of_database_AirTable = ndjson.load(file)
+        list_of_indices_of_rows_with_missing_sysID = []
+        for i, row in enumerate(list_representing_table_Generators_of_database_AirTable):
+            if "sysID" not in row or row["sysID"] is None or row["sysID"] == "":
+                list_of_indices_of_rows_with_missing_sysID.append(i)
+        return list_of_indices_of_rows_with_missing_sysID
+    
+
+    def list_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_sysid(self):
+        data_frame_Generators_of_database_RECBus = pd.read_csv(
+            filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv"
+        )
+        list_of_indices_of_rows_with_missing_sysid = data_frame_Generators_of_database_RECBus[
+            data_frame_Generators_of_database_RECBus["sysid"].isna()
+        ].index.to_list()
+        return list_of_indices_of_rows_with_missing_sysid
+
+
     def create_dictionary_of_sets_of_system_IDs_in_table_Generators(self):
         JSON_object_representing_table_Generators_of_database_AirTable = None
         with open(self.path_to_data + "AirTable/Generators.ndjson") as file:
