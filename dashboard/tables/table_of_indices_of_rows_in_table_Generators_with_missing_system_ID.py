@@ -28,6 +28,10 @@ if len(list_of_indices_of_rows_in_table_Generators_of_database_RECBus_with_missi
 
 list_of_columns = [
     {
+        "name": "Index",
+        "id": "Index"
+    },
+    {
         "name": "Index Of Row In Table Generators Of Database AirTable With Missing sysID",
         "id": "Index Of Row In Table Generators Of Database AirTable With Missing sysID"
     },
@@ -41,15 +45,18 @@ table_of_indices_of_rows_in_table_Generators_with_missing_system_ID = dash_table
     columns = list_of_columns,
     data = [
         {
+            "Index": index,
             "Index Of Row In Table Generators Of Database AirTable With Missing sysID": index_of_row_in_table_Generators_of_database_AirTable_with_missing_sysID,
             "Index Of Row In Table Generators Of Database RECBus With Missing sysid": index_of_row_in_table_Generators_of_database_RECBus_with_missing_sysid
         }
-        for (
+        for index, (
             index_of_row_in_table_Generators_of_database_AirTable_with_missing_sysID,
             index_of_row_in_table_Generators_of_database_RECBus_with_missing_sysid
-        ) in zip(
-            list_of_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_sysID,
-            list_of_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_sysid
+        ) in enumerate(
+            zip(
+                list_of_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_sysID,
+                list_of_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_sysid
+            )
         )
     ],
     style_table = {"width": "100%"}
