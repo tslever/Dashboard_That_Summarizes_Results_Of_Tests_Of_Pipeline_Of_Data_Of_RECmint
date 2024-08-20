@@ -5,8 +5,13 @@ from dashboard.graphs import graph_of_frequency_of_energy_vs_energy_per_AirTable
 
 list_of_children = [
     Cell(
-        graph_of_frequency_of_energy_vs_energy_per_AirTable_and_RECBus,
-        width = 50,
+        children = html.Div(
+            graph_of_frequency_of_energy_vs_energy_per_AirTable_and_RECBus,
+            style = {
+                "width": "50%",
+                "margin": "0 auto"
+            }
+        ),
         colSpan = 2
     )
 ]
