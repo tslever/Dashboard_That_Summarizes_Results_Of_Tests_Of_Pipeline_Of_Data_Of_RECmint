@@ -1,10 +1,13 @@
 from dashboard.rows.row_with_graphs_of_frequency_of_energy_vs_energy \
     import row_with_graphs_of_frequency_of_energy_vs_energy
+from dashboard.rows.row_with_graph_of_frequency_of_energy_vs_energy \
+    import row_with_graph_of_frequency_of_energy_vs_energy
 from dashboard.Table import Table
 
 
 list_of_rows = [
-    row_with_graphs_of_frequency_of_energy_vs_energy
+    row_with_graphs_of_frequency_of_energy_vs_energy,
+    row_with_graph_of_frequency_of_energy_vs_energy
 ]
 
 
