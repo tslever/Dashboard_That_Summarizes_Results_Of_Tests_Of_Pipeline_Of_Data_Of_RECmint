@@ -80,13 +80,9 @@ class Loader():
     
 
     def count_rows_of_table_Generators_of_database_AirTable_without_key_sysID(self):
-        count = 0
-        with open(self.path_to_data + "AirTable/Generators.ndjson", 'r') as file:
-            for line in file:
-                JSON_object = json.loads(line)
-                if "sysID" not in JSON_object:
-                    count += 1
-        return count
+        count_of_rows_of_table_Generators_of_database_AirTable_without_key_sysID = \
+            len(self.list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_sysID())
+        return count_of_rows_of_table_Generators_of_database_AirTable_without_key_sysID
 
 
     def count_rows_of_table_Generators_of_database_RECBus(self):
@@ -99,13 +95,9 @@ class Loader():
     
 
     def count_rows_of_table_Generators_of_database_RECBus_without_key_sysid(self):
-        data_frame = pd.read_csv(
-            filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
-            header = 0,
-            nrows = 1
-        )
-        count = data_frame["sysid"].isna().sum()
-        return count
+        count_of_rows_of_table_Generators_of_database_RECBus_without_key_sysid = \
+            len(self.list_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_sysid())
+        return count_of_rows_of_table_Generators_of_database_RECBus_without_key_sysid
 
 
     def create_dictionary_of_sets_of_system_IDs_in_table_Generators(self):
