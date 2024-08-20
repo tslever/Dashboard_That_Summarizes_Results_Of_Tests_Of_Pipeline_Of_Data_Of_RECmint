@@ -183,6 +183,42 @@ class Loader():
             data_frame_Generators_of_database_RECBus["sysid"].isna()
         ].index.to_list()
         return list_of_indices_of_rows_with_missing_sysid
+
+
+    def count_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus(self):
+        list_representing_table_Generators_of_database_AirTable = None
+        with open(file = self.path_to_data + "AirTable/Generators.ndjson", mode = 'r') as file:
+            list_representing_table_Generators_of_database_AirTable = ndjson.load(file)
+        data_frame_Generators_of_database_RECBus = pd.read_csv(
+            filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
+            header = 0
+        )
+        list_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus = [
+            row for row in list_representing_table_Generators_of_database_AirTable
+            if "sysID" in row and row["sysID"] and row["sysID"] in data_frame_Generators_of_database_RECBus["sysid"].values
+        ]
+        count_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus = len(
+            list_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus
+        )
+        return count_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus
     
+
+    def count_rows_in_table_Generators_of_database_RECBus_with_existing_sysid_in_column_sysID_of_table_Generators_of_database_AirTable(self):
+        data_frame_Generators_of_database_RECBus = pd.read_csv(
+            filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
+            header = 0
+        )
+        list_representing_table_Generators_of_database_AirTable = None
+        with open(file = self.path_to_data + "AirTable/Generators.ndjson", mode = 'r') as file:
+            list_representing_table_Generators_of_database_AirTable = ndjson.load(file)
+        data_frame_representing_table_Generators_of_database_AirTable = pd.DataFrame(list_representing_table_Generators_of_database_AirTable)
+        data_frame_of_matching_rows = data_frame_Generators_of_database_RECBus[
+            data_frame_Generators_of_database_RECBus["sysid"].isin(
+                data_frame_representing_table_Generators_of_database_AirTable["sysID"]
+            )
+        ]
+        count_of_matching_rows = len(data_frame_of_matching_rows)
+        return count_of_matching_rows
+
 
 loader = Loader()

@@ -3,7 +3,7 @@ from dashboard.rows.rows_with_statistics import row_with_counts_of_columns_of_ta
 from dashboard.rows.rows_with_statistics import row_with_counts_of_generators_in_database_that_do_not_correspond_to_generators_in_other_database
 from dashboard.rows.rows_with_statistics import row_with_counts_of_rows_of_table_Generators
 from dashboard.rows.rows_with_statistics import row_with_counts_of_rows_of_table_Generators_without_system_ID
-
+from dashboard.rows.rows_with_statistics import row_with_counts_of_rows_in_table_Generators_of_database_with_existing_system_ID_in_column_of_system_IDs_of_table_Generators_of_other_database
 
 list_of_columns = [
     {"name": "Description Of Statistic For AirTable", "id": "Description Of Statistic For AirTable"},
@@ -18,6 +18,7 @@ table_of_statistics_of_table_Generators = dash_table.DataTable(
         row_with_counts_of_columns_of_table_Generators,
         row_with_counts_of_generators_in_database_that_do_not_correspond_to_generators_in_other_database,
         row_with_counts_of_rows_of_table_Generators,
+        row_with_counts_of_rows_in_table_Generators_of_database_with_existing_system_ID_in_column_of_system_IDs_of_table_Generators_of_other_database,
         row_with_counts_of_rows_of_table_Generators_without_system_ID
     ],
     style_table = {"width": "100%"},
