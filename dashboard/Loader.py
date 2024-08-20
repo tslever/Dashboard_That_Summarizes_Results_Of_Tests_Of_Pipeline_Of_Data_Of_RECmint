@@ -33,7 +33,7 @@ class Loader():
 
     def count_generators_in_AirTable_that_do_not_correspond_to_generators_in_RECBus(self):
         dictionary_of_sets_of_systems_IDs_in_table_Generators = \
-            self.create_dictionary_of_sets_of_system_IDs_in_table_Generators()
+            self._create_dictionary_of_sets_of_system_IDs_in_table_Generators()
         set_of_system_IDs_in_table_Generators_of_database_AirTable = \
             dictionary_of_sets_of_systems_IDs_in_table_Generators[
                 "set_of_system_IDs_in_table_Generators_of_database_AirTable"
@@ -53,7 +53,7 @@ class Loader():
 
     def count_generators_in_RECBus_that_do_not_correspond_to_generators_in_AirTable(self):
         dictionary_of_sets_of_systems_IDs_in_table_Generators = \
-            self.create_dictionary_of_sets_of_system_IDs_in_table_Generators()
+            self._create_dictionary_of_sets_of_system_IDs_in_table_Generators()
         set_of_system_IDs_in_table_Generators_of_database_AirTable = \
             dictionary_of_sets_of_systems_IDs_in_table_Generators[
                 "set_of_system_IDs_in_table_Generators_of_database_AirTable"
@@ -136,7 +136,7 @@ class Loader():
         return count_of_rows_of_table_Generators_of_database_RECBus_without_key_sysid
 
 
-    def create_dictionary_of_sets_of_system_IDs_in_table_Generators(self):
+    def _create_dictionary_of_sets_of_system_IDs_in_table_Generators(self):
         JSON_object_representing_table_Generators_of_database_AirTable = None
         with open(self.path_to_data + "AirTable/Generators.ndjson") as file:
             JSON_object_representing_table_Generators_of_database_AirTable = ndjson.load(file)
