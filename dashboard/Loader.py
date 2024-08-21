@@ -32,46 +32,46 @@ class Loader():
 
 
     def count_generators_in_AirTable_that_do_not_correspond_to_generators_in_RECBus(self):
-        dictionary_of_sets_of_systems_IDs_in_table_Generators = \
-            self._create_dictionary_of_sets_of_system_IDs_in_table_Generators()
-        set_of_system_IDs_in_table_Generators_of_database_AirTable = \
-            dictionary_of_sets_of_systems_IDs_in_table_Generators[
-                "set_of_system_IDs_in_table_Generators_of_database_AirTable"
+        dictionary_of_sets_of_GATS_IDs_in_table_Generators = \
+            self._create_dictionary_of_sets_of_GATS_IDs_in_table_Generators()
+        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = \
+            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
+                "set_of_GATS_IDs_in_table_Generators_of_database_AirTable"
             ]
-        set_of_system_IDs_in_table_Generators_of_database_RECBus = \
-            dictionary_of_sets_of_systems_IDs_in_table_Generators[
-                "set_of_system_IDs_in_table_Generators_of_database_RECBus"
+        set_of_GATS_IDs_in_table_Generators_of_database_RECBus = \
+            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
+                "set_of_GATS_IDs_in_table_Generators_of_database_RECBus"
             ]
         
-        set_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
-            set_of_system_IDs_in_table_Generators_of_database_AirTable - \
-            set_of_system_IDs_in_table_Generators_of_database_RECBus
-        count_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
-            len(set_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators)
-        return count_of_system_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators
+        set_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
+            set_of_GATS_IDs_in_table_Generators_of_database_AirTable - \
+            set_of_GATS_IDs_in_table_Generators_of_database_RECBus
+        count_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
+            len(set_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators)
+        return count_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators
     
 
     def count_generators_in_RECBus_that_do_not_correspond_to_generators_in_AirTable(self):
-        dictionary_of_sets_of_systems_IDs_in_table_Generators = \
-            self._create_dictionary_of_sets_of_system_IDs_in_table_Generators()
-        set_of_system_IDs_in_table_Generators_of_database_AirTable = \
-            dictionary_of_sets_of_systems_IDs_in_table_Generators[
-                "set_of_system_IDs_in_table_Generators_of_database_AirTable"
+        dictionary_of_sets_of_GATS_IDs_in_table_Generators = \
+            self._create_dictionary_of_sets_of_GATS_IDs_in_table_Generators()
+        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = \
+            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
+                "set_of_GATS_IDs_in_table_Generators_of_database_AirTable"
             ]
-        set_of_system_IDs_in_table_Generators_of_database_RECBus = \
-            dictionary_of_sets_of_systems_IDs_in_table_Generators[
-                "set_of_system_IDs_in_table_Generators_of_database_RECBus"
+        set_of_GATS_IDs_in_table_Generators_of_database_RECBus = \
+            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
+                "set_of_GATS_IDs_in_table_Generators_of_database_RECBus"
             ]
         
-        set_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
-            set_of_system_IDs_in_table_Generators_of_database_RECBus - \
-            set_of_system_IDs_in_table_Generators_of_database_AirTable
-        count_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
-            len(set_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators)
-        return count_of_system_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators
+        set_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
+            set_of_GATS_IDs_in_table_Generators_of_database_RECBus - \
+            set_of_GATS_IDs_in_table_Generators_of_database_AirTable
+        count_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
+            len(set_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators)
+        return count_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators
 
 
-    def count_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus(self):
+    def count_rows_in_table_Generators_of_database_AirTable_with_existing_GATS_ID_in_column_unit_id_of_table_Generators_of_database_RECBus(self):
         list_representing_table_Generators_of_database_AirTable = None
         with open(file = self.path_to_data + "AirTable/Generators.ndjson", mode = 'r') as file:
             list_representing_table_Generators_of_database_AirTable = ndjson.load(file)
@@ -79,17 +79,17 @@ class Loader():
             filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
             header = 0
         )
-        list_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus = [
+        list_of_rows_in_table_Generators_of_database_AirTable_with_existing_GATS_ID_in_column_unit_id_of_table_Generators_of_database_RECBus = [
             row for row in list_representing_table_Generators_of_database_AirTable
-            if "sysID" in row and row["sysID"] and row["sysID"] in data_frame_Generators_of_database_RECBus["sysid"].values
+            if "GATS ID" in row and row["GATS ID"] and row["GATS ID"] in data_frame_Generators_of_database_RECBus["unit-id"].values
         ]
-        count_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus = len(
-            list_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus
+        count_of_rows_in_table_Generators_of_database_AirTable_with_existing_GATS_ID_in_column_unit_id_of_table_Generators_of_database_RECBus = len(
+            list_of_rows_in_table_Generators_of_database_AirTable_with_existing_GATS_ID_in_column_unit_id_of_table_Generators_of_database_RECBus
         )
-        return count_of_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus
+        return count_of_rows_in_table_Generators_of_database_AirTable_with_existing_GATS_ID_in_column_unit_id_of_table_Generators_of_database_RECBus
     
 
-    def count_rows_in_table_Generators_of_database_RECBus_with_existing_sysid_in_column_sysID_of_table_Generators_of_database_AirTable(self):
+    def count_rows_in_table_Generators_of_database_RECBus_with_existing_unit_id_in_column_GATS_ID_of_table_Generators_of_database_AirTable(self):
         data_frame_Generators_of_database_RECBus = pd.read_csv(
             filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
             header = 0
@@ -99,8 +99,8 @@ class Loader():
             list_representing_table_Generators_of_database_AirTable = ndjson.load(file)
         data_frame_representing_table_Generators_of_database_AirTable = pd.DataFrame(list_representing_table_Generators_of_database_AirTable)
         data_frame_of_matching_rows = data_frame_Generators_of_database_RECBus[
-            data_frame_Generators_of_database_RECBus["sysid"].isin(
-                data_frame_representing_table_Generators_of_database_AirTable["sysID"]
+            data_frame_Generators_of_database_RECBus["unit-id"].isin(
+                data_frame_representing_table_Generators_of_database_AirTable["GATS ID"]
             )
         ]
         count_of_matching_rows = len(data_frame_of_matching_rows)
@@ -115,10 +115,10 @@ class Loader():
         return count
     
 
-    def count_rows_of_table_Generators_of_database_AirTable_without_key_sysID(self):
-        count_of_rows_of_table_Generators_of_database_AirTable_without_key_sysID = \
-            len(self.list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_sysID())
-        return count_of_rows_of_table_Generators_of_database_AirTable_without_key_sysID
+    def count_rows_of_table_Generators_of_database_AirTable_without_key_GATS_ID(self):
+        count_of_rows_of_table_Generators_of_database_AirTable_without_key_GATS_ID = \
+            len(self.list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_GATS_ID())
+        return count_of_rows_of_table_Generators_of_database_AirTable_without_key_GATS_ID
 
 
     def count_rows_of_table_Generators_of_database_RECBus(self):
@@ -130,13 +130,13 @@ class Loader():
         return count
     
 
-    def count_rows_of_table_Generators_of_database_RECBus_without_key_sysid(self):
-        count_of_rows_of_table_Generators_of_database_RECBus_without_key_sysid = \
-            len(self.list_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_sysid())
-        return count_of_rows_of_table_Generators_of_database_RECBus_without_key_sysid
+    def count_rows_of_table_Generators_of_database_RECBus_without_key_unit_id(self):
+        count_of_rows_of_table_Generators_of_database_RECBus_without_key_unit_id = \
+            len(self.list_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_unit_id())
+        return count_of_rows_of_table_Generators_of_database_RECBus_without_key_unit_id
 
 
-    def _create_dictionary_of_sets_of_system_IDs_in_table_Generators(self):
+    def _create_dictionary_of_sets_of_GATS_IDs_in_table_Generators(self):
         JSON_object_representing_table_Generators_of_database_AirTable = None
         with open(self.path_to_data + "AirTable/Generators.ndjson") as file:
             JSON_object_representing_table_Generators_of_database_AirTable = ndjson.load(file)
@@ -147,15 +147,15 @@ class Loader():
             filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
             header = 0
         )
-        set_of_system_IDs_in_table_Generators_of_database_AirTable = \
-            set(data_frame_Generators_of_database_AirTable["sysID"])
-        set_of_system_IDs_in_table_Generators_of_database_RECBus = \
-            set(data_frame_Generators_of_database_RECBus["sysid"])
-        dictionary_of_sets_of_systems_IDs_in_table_Generators = {
-            "set_of_system_IDs_in_table_Generators_of_database_AirTable": set_of_system_IDs_in_table_Generators_of_database_AirTable,
-            "set_of_system_IDs_in_table_Generators_of_database_RECBus": set_of_system_IDs_in_table_Generators_of_database_RECBus
+        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = \
+            set(data_frame_Generators_of_database_AirTable["GATS ID"])
+        set_of_GATS_IDs_in_table_Generators_of_database_RECBus = \
+            set(data_frame_Generators_of_database_RECBus["unit-id"])
+        dictionary_of_sets_of_GATS_IDs_in_table_Generators = {
+            "set_of_GATS_IDs_in_table_Generators_of_database_AirTable": set_of_GATS_IDs_in_table_Generators_of_database_AirTable,
+            "set_of_GATS_IDs_in_table_Generators_of_database_RECBus": set_of_GATS_IDs_in_table_Generators_of_database_RECBus
         }
-        return dictionary_of_sets_of_systems_IDs_in_table_Generators
+        return dictionary_of_sets_of_GATS_IDs_in_table_Generators
     
 
     def create_excerpt_of_table_Generators_of_database_AirTable(self):
@@ -200,32 +200,32 @@ class Loader():
         return data_frame["nominal-power"].to_list()
 
 
-    def list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_sysID(self):
+    def list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_GATS_ID(self):
         list_representing_table_Generators_of_database_AirTable = None
         with open(self.path_to_data + "AirTable/Generators.ndjson", 'r') as file:
             list_representing_table_Generators_of_database_AirTable = ndjson.load(file)
-        list_of_indices_of_rows_with_missing_sysID = []
+        list_of_indices_of_rows_with_missing_GATS_ID = []
         for i, row in enumerate(list_representing_table_Generators_of_database_AirTable):
-            if "sysID" not in row or row["sysID"] is None or row["sysID"] == "":
-                list_of_indices_of_rows_with_missing_sysID.append(i)
-        return list_of_indices_of_rows_with_missing_sysID
+            if "GATS ID" not in row or row["GATS ID"] is None or row["GATS ID"] == "":
+                list_of_indices_of_rows_with_missing_GATS_ID.append(i)
+        return list_of_indices_of_rows_with_missing_GATS_ID
     
 
-    def list_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_sysid(self):
+    def list_indices_of_rows_in_table_Generators_of_database_RECBus_with_missing_unit_id(self):
         data_frame_Generators_of_database_RECBus = pd.read_csv(
             filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv"
         )
-        list_of_indices_of_rows_with_missing_sysid = data_frame_Generators_of_database_RECBus[
-            data_frame_Generators_of_database_RECBus["sysid"].isna()
+        list_of_indices_of_rows_with_missing_unit_id = data_frame_Generators_of_database_RECBus[
+            data_frame_Generators_of_database_RECBus["unit-id"].isna()
         ].index.to_list()
-        return list_of_indices_of_rows_with_missing_sysid
+        return list_of_indices_of_rows_with_missing_unit_id
 
 
     def list_powers_in_AirTable_and_RECBus(self):
         data_frame_Generators_of_database_AirTable = pd.read_json(self.path_to_data + "AirTable/Generators.ndjson", lines = True)
         data_frame_Generators_of_database_RECBus = pd.read_csv(self.path_to_data + "RECBus/Generators.csv")
-        excerpt_of_data_frame_Generators_of_database_AirTable = data_frame_Generators_of_database_AirTable[["sysID", "Nameplate (kW DC)"]].rename(columns = {"Nameplate (kW DC)": "power"})
-        excerpt_of_data_frame_Generators_of_database_RECBus = data_frame_Generators_of_database_RECBus[["sysid", "nominal-power"]].rename(columns = {"nominal-power": "power"})
+        excerpt_of_data_frame_Generators_of_database_AirTable = data_frame_Generators_of_database_AirTable[["GATS ID", "Nameplate (kW DC)"]].rename(columns = {"Nameplate (kW DC)": "power"})
+        excerpt_of_data_frame_Generators_of_database_RECBus = data_frame_Generators_of_database_RECBus[["unit-id", "nominal-power"]].rename(columns = {"nominal-power": "power"})
         unioned_excerpts = pd.concat([excerpt_of_data_frame_Generators_of_database_AirTable, excerpt_of_data_frame_Generators_of_database_RECBus]).drop_duplicates()
         list_of_powers_in_AirTable_and_RECBus = unioned_excerpts["power"].to_list()
         return list_of_powers_in_AirTable_and_RECBus

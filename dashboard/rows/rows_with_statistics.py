@@ -22,16 +22,16 @@ row_with_counts_of_rows_of_table_Generators = {
     "Value Of Statistic For RECBus": loader.count_rows_of_table_Generators_of_database_RECBus(),
 }
 
-row_with_counts_of_rows_of_table_Generators_without_system_ID = {
-    "Description Of Statistic For AirTable": "count of rows in table Generators without key sysID",
-    "Value Of Statistic For AirTable": loader.count_rows_of_table_Generators_of_database_AirTable_without_key_sysID(),
-    "Description Of Statistic For RECBus": "count of rows in table Generators without key sysid",
-    "Value Of Statistic For RECBus": loader.count_rows_of_table_Generators_of_database_RECBus_without_key_sysid(),
+row_with_counts_of_rows_of_table_Generators_without_GATS_ID = {
+    "Description Of Statistic For AirTable": "count of rows in table Generators without key GATS ID",
+    "Value Of Statistic For AirTable": loader.count_rows_of_table_Generators_of_database_AirTable_without_key_GATS_ID(),
+    "Description Of Statistic For RECBus": "count of rows in table Generators without key unit-id",
+    "Value Of Statistic For RECBus": loader.count_rows_of_table_Generators_of_database_RECBus_without_key_unit_id(),
 }
 
-row_with_counts_of_rows_in_table_Generators_of_database_with_existing_system_ID_in_column_of_system_IDs_of_table_Generators_of_other_database = {
-    "Description Of Statistic For AirTable": "count of rows in table Generators of database AirTable with existing sysID in column sysid of table Generators of database RECBus",
-    "Value Of Statistic For AirTable": loader.count_rows_in_table_Generators_of_database_AirTable_with_existing_sysID_in_column_sysid_of_table_Generators_of_database_RECBus(),
-    "Description Of Statistic For RECBus": "count of rows in table Generators of database RECBus with existing sysid in column sysID of table Generators of database AirTable",
-    "Value Of Statistic For RECBus": loader.count_rows_in_table_Generators_of_database_RECBus_with_existing_sysid_in_column_sysID_of_table_Generators_of_database_AirTable()
+row_with_counts_of_rows_in_table_Generators_of_database_with_existing_GATS_ID_in_column_of_GATS_IDs_of_table_Generators_of_other_database = {
+    "Description Of Statistic For AirTable": "count of rows in table Generators of database AirTable with existing GATS ID in column unit-id of table Generators of database RECBus",
+    "Value Of Statistic For AirTable": loader.count_rows_in_table_Generators_of_database_AirTable_with_existing_GATS_ID_in_column_unit_id_of_table_Generators_of_database_RECBus(),
+    "Description Of Statistic For RECBus": "count of rows in table Generators of database RECBus with existing unit-id in column GATS ID of table Generators of database AirTable",
+    "Value Of Statistic For RECBus": loader.count_rows_in_table_Generators_of_database_RECBus_with_existing_unit_id_in_column_GATS_ID_of_table_Generators_of_database_AirTable()
 }
