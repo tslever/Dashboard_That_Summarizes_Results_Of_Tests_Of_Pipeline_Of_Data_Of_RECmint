@@ -1,8 +1,12 @@
 from dash import dcc, html
 from dashboard.tables.table_of_samples_of_table_Generators import table_of_samples_of_table_Generators
 from dashboard.tables.table_of_statistics_of_table_Generators import table_of_statistics_of_table_Generators
-from dashboard.tables.table_of_visualizations_of_table_Generators import table_of_visualizations_of_table_Generators
-from dashboard.tables.table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID import table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
+from dashboard.tables.table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators import \
+    table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators
+from dashboard.tables.table_of_visualizations_of_AC_Capacity_of_tables_Generators import \
+    table_of_visualizations_of_AC_Capacity_of_tables_Generators
+from dashboard.tables.table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID import \
+    table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
 
 tab_Contracts = dcc.Tab(
     label = "Contracts",
@@ -30,18 +34,25 @@ details_with_table_of_indices_of_rows_in_table_Generators_of_database_with_missi
     ]
 )
 
-details_with_table_of_visualizations_of_table_Generators_of_database = html.Details(
+details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators = html.Details(
     children = [
-        html.Summary("Table Of Visualizations Of Table Generators Of Database"),
-        table_of_visualizations_of_table_Generators
+        html.Summary("Table Of Visualizations Of Nameplate / Nominal Power Of Tables Generators"),
+        table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators
+    ]
+)
+
+details_with_table_of_visualizations_of_AC_Capacity_of_tables_Generators = html.Details(
+    children = [
+        html.Summary("Table Of Visualizations Of AC Capacity Of Tables Generators"),
+        table_of_visualizations_of_AC_Capacity_of_tables_Generators
     ]
 )
 
 details_of_details_of_visualizations = html.Details(
     children = [
         html.Summary("Details Of Details Of Visualizations"),
-        details_with_table_of_visualizations_of_table_Generators_of_database,
-        details_with_table_of_visualizations_of_table_Generators_of_database
+        details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators,
+        details_with_table_of_visualizations_of_AC_Capacity_of_tables_Generators
     ]
 )
 

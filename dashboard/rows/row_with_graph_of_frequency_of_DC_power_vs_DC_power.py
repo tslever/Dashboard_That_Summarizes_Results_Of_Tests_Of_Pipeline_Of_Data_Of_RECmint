@@ -1,12 +1,12 @@
 from dashboard.Cell import Cell
 from dash import html
-from dashboard.graphs import graph_of_frequency_of_energy_vs_energy_per_AirTable_and_RECBus
+from dashboard.graphs import graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus
 
 
 list_of_children = [
     Cell(
         children = html.Div(
-            graph_of_frequency_of_energy_vs_energy_per_AirTable_and_RECBus,
+            graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus,
             style = {
                 "width": "50%",
                 "margin": "0 auto"
@@ -17,4 +17,4 @@ list_of_children = [
 ]
 
 
-row_with_graph_of_frequency_of_energy_vs_energy = html.Tr(list_of_children)
+row_with_graph_of_frequency_of_DC_power_vs_DC_power = html.Tr(list_of_children)

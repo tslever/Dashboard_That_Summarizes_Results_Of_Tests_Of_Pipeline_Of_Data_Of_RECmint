@@ -180,19 +180,19 @@ class Loader():
         return data_frame
 
 
-    def create_list_of_values_in_column_Nameplate_of_table_Generators_of_AirTable(self) -> list:
-        list_of_values_in_column_nameplate_of_table_Generators_of_AirTable = []
+    def list_values_in_column_of_table_Generators_of_AirTable(self, name_of_column) -> list:
+        list_of_values_in_column_of_table_Generators_of_AirTable = []
         with open(self.path_to_data + "AirTable/Generators.ndjson", 'r') as file:
             data = ndjson.load(file)
             for record in data:
-                if "Nameplate (kW DC)" in record:
-                    list_of_values_in_column_nameplate_of_table_Generators_of_AirTable.append(
-                        record["Nameplate (kW DC)"]
+                if name_of_column in record:
+                    list_of_values_in_column_of_table_Generators_of_AirTable.append(
+                        record[name_of_column]
                     )
-        return list_of_values_in_column_nameplate_of_table_Generators_of_AirTable
-    
+        return list_of_values_in_column_of_table_Generators_of_AirTable
 
-    def create_list_of_values_in_column_nominal_power_of_table_Generators_of_RECBus(self) -> list:
+
+    def list_values_in_column_nominal_power_of_table_Generators_of_RECBus(self) -> list:
         data_frame = pd.read_csv(
             filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
             header = 0
@@ -221,7 +221,7 @@ class Loader():
         return list_of_indices_of_rows_with_missing_unit_id
 
 
-    def list_powers_in_AirTable_and_RECBus(self):
+    def list_DC_powers_in_AirTable_and_RECBus(self):
         data_frame_Generators_of_database_AirTable = pd.read_json(self.path_to_data + "AirTable/Generators.ndjson", lines = True)
         data_frame_Generators_of_database_RECBus = pd.read_csv(self.path_to_data + "RECBus/Generators.csv")
         excerpt_of_data_frame_Generators_of_database_AirTable = data_frame_Generators_of_database_AirTable[["GATS ID", "Nameplate (kW DC)"]].rename(columns = {"Nameplate (kW DC)": "power"})
