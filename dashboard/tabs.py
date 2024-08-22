@@ -37,6 +37,14 @@ details_with_table_of_visualizations_of_table_Generators_of_database = html.Deta
     ]
 )
 
+details_of_details_of_visualizations = html.Details(
+    children = [
+        html.Summary("Details Of Details Of Visualizations"),
+        details_with_table_of_visualizations_of_table_Generators_of_database,
+        details_with_table_of_visualizations_of_table_Generators_of_database
+    ]
+)
+
 tab_Generators = dcc.Tab(
     label = "Generators",
     value = "Generators",
@@ -44,6 +52,6 @@ tab_Generators = dcc.Tab(
         details_with_table_of_samples_of_table_Generators_Of_database,
         details_with_table_of_statistics_of_table_Generators_of_database,
         details_with_table_of_indices_of_rows_in_table_Generators_of_database_with_missing_GATS_ID,
-        details_with_table_of_visualizations_of_table_Generators_of_database
+        details_of_details_of_visualizations
     ]
 )
