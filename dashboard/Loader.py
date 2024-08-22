@@ -192,12 +192,12 @@ class Loader():
         return list_of_values_in_column_of_table_Generators_of_AirTable
 
 
-    def list_values_in_column_nominal_power_of_table_Generators_of_RECBus(self) -> list:
+    def list_values_in_column_of_table_Generators_of_RECBus(self, name_of_column) -> list:
         data_frame = pd.read_csv(
             filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
             header = 0
         )
-        return data_frame["nominal-power"].to_list()
+        return data_frame[name_of_column].to_list()
 
 
     def list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_GATS_ID(self):
