@@ -1,7 +1,5 @@
 from dashboard.rows.row_with_graphs_of_frequency_of_AC_Capacity_vs_AC_Capacity \
     import row_with_graphs_of_frequency_of_AC_Capacity_vs_AC_Capacity
-from dashboard.rows.row_with_graph_of_frequency_of_DC_power_vs_DC_power \
-    import row_with_graph_of_frequency_of_DC_power_vs_DC_power
 from dashboard.Table import Table
 
 

@@ -7,6 +7,8 @@ from dashboard.tables.table_of_visualizations_of_AC_Capacity_of_tables_Generator
     table_of_visualizations_of_AC_Capacity_of_tables_Generators
 from dashboard.tables.table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID import \
     table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
+from dashboard.tables.table_of_visualizations_of_AP_to_Date_of_tables_Generators import \
+    table_of_visualizations_of_AP_to_Date_of_tables_Generators
 
 tab_Contracts = dcc.Tab(
     label = "Contracts",
@@ -41,6 +43,13 @@ details_with_table_of_visualizations_of_AC_Capacity_of_tables_Generators = html.
     ]
 )
 
+details_with_table_of_visualizations_of_AP_to_Date_of_tables_Generators = html.Details(
+    children = [
+        html.Summary("Table Of Visualizations Of AP to Date Of Tables Generators"),
+        table_of_visualizations_of_AP_to_Date_of_tables_Generators
+    ]
+)
+
 details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators = html.Details(
     children = [
         html.Summary("Table Of Visualizations Of Nameplate / Nominal Power Of Tables Generators"),
@@ -52,6 +61,7 @@ details_of_details_of_visualizations = html.Details(
     children = [
         html.Summary("Details Of Details Of Visualizations"),
         details_with_table_of_visualizations_of_AC_Capacity_of_tables_Generators,
+        details_with_table_of_visualizations_of_AP_to_Date_of_tables_Generators,
         details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators
     ]
 )
