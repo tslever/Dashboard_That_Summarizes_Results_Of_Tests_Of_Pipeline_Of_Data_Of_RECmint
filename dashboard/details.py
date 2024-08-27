@@ -17,6 +17,8 @@ from dashboard.tables.table_of_visualizations_of_Count_Of_Contracts_vs_Count imp
     table_of_visualizations_of_Count_Of_Contracts_vs_Count
 from dashboard.tables.table_of_visualizations_of_Count_Of_Generators_vs_Count import \
     table_of_visualizations_of_Count_Of_Generators_vs_Count
+from dashboard.tables.table_of_visualizations_of_Number_Of_Lifetime_RECs_vs_Number import \
+    table_of_visualizations_of_Number_Of_Lifetime_RECs_vs_Number
 
 
 details_with_table_of_samples_of_table_Generators_Of_database = html.Details(
@@ -88,6 +90,14 @@ details_with_table_of_visualizations_of_Count_Of_Generators_of_tables_Generators
     style={"margin-left": "20px"}
 )
 
+details_with_table_of_visualizations_of_Number_Of_Lifetime_RECs_of_tables_Generators = html.Details(
+    children = [
+        html.Summary("Table Of Visualizations Of Number Of Lifetime RECs Of Tables Generators"),
+        table_of_visualizations_of_Number_Of_Lifetime_RECs_vs_Number
+    ],
+    style={"margin-left": "20px"}
+)
+
 details_of_details_of_visualizations = html.Details(
     children = [
         html.Summary("Details Of Details Of Visualizations"),
@@ -96,6 +106,7 @@ details_of_details_of_visualizations = html.Details(
         details_with_table_of_visualizations_of_Average_Cost_Per_REC_of_tables_Generators,
         details_with_table_of_visualizations_of_Count_Of_Contracts_of_tables_Generators,
         details_with_table_of_visualizations_of_Count_Of_Generators_of_tables_Generators,
+        details_with_table_of_visualizations_of_Number_Of_Lifetime_RECs_of_tables_Generators,
         details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators
     ]
 )
