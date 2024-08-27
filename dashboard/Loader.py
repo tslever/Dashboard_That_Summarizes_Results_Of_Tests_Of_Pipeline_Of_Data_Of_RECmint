@@ -187,7 +187,7 @@ class Loader():
             data_frame[name_of_column] = data_frame[name_of_column].apply(
                 lambda x: np.nan if x == {'specialValue': 'NaN'} else x
             )
-        elif name_of_column == "Locked Annuity Rate for Current Contract":
+        elif name_of_column in ["Locked Annuity Rate for Current Contract", "M&S - Fee%"]:
             data_frame[name_of_column] = data_frame[name_of_column].apply(
                 lambda x: x[0] if isinstance(x, list) else x
             )
