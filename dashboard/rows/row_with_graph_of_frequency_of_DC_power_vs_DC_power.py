@@ -1,6 +1,7 @@
 from dashboard.Cell import Cell
 from dash import html
-from dashboard.graphs import graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus
+from dashboard.graphs.graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus import \
+    graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus
 
 
 list_of_children = [

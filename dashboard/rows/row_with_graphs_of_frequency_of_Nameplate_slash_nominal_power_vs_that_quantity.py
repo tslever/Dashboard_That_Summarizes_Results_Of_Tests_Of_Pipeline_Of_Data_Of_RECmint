@@ -1,7 +1,9 @@
 from dashboard.Cell import Cell
 from dash import html
-from dashboard.graphs import graph_of_frequency_of_Nameplate_vs_Nameplate_per_table_Generators_of_AirTable
-from dashboard.graphs import graph_of_frequency_of_nominal_power_vs_nominal_power_per_table_Generators_of_RECBus
+from dashboard.graphs.graph_of_frequency_of_Nameplate_vs_Nameplate_per_table_Generators_of_AirTable import \
+    graph_of_frequency_of_Nameplate_vs_Nameplate_per_table_Generators_of_AirTable
+from dashboard.graphs.graph_of_frequency_of_nominal_power_vs_nominal_power_per_table_Generators_of_RECBus import \
+    graph_of_frequency_of_nominal_power_vs_nominal_power_per_table_Generators_of_RECBus
 
 
 list_of_children = [
