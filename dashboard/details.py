@@ -19,6 +19,8 @@ from dashboard.tables.table_of_visualizations_of_Count_Of_Generators_vs_Count im
     table_of_visualizations_of_Count_Of_Generators_vs_Count
 from dashboard.tables.table_of_visualizations_of_Number_Of_Lifetime_RECs_vs_Number import \
     table_of_visualizations_of_Number_Of_Lifetime_RECs_vs_Number
+from dashboard.tables.table_of_visualizations_of_Annuity_Rate_vs_Rate import \
+    table_of_visualizations_of_Annuity_Rate_vs_Rate
 
 
 details_with_table_of_samples_of_table_Generators_Of_database = html.Details(
@@ -98,6 +100,16 @@ details_with_table_of_visualizations_of_Number_Of_Lifetime_RECs_of_tables_Genera
     style={"margin-left": "20px"}
 )
 
+details_with_table_of_visualizations_of_Annuity_Rate_vs_Rate = html.Details(
+    children = [
+        html.Summary("Table Of Visualizations Of Annuity Rate vs. Rate"),
+        table_of_visualizations_of_Annuity_Rate_vs_Rate
+    ],
+    style={"margin-left": "20px"}
+)
+
+table_of_visualizations_of_Annuity_Rate_vs_Rate
+
 details_of_details_of_visualizations = html.Details(
     children = [
         html.Summary("Details Of Details Of Visualizations"),
@@ -107,6 +119,7 @@ details_of_details_of_visualizations = html.Details(
         details_with_table_of_visualizations_of_Count_Of_Contracts_of_tables_Generators,
         details_with_table_of_visualizations_of_Count_Of_Generators_of_tables_Generators,
         details_with_table_of_visualizations_of_Number_Of_Lifetime_RECs_of_tables_Generators,
+        details_with_table_of_visualizations_of_Annuity_Rate_vs_Rate,
         details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators
     ]
 )

@@ -183,9 +183,14 @@ class Loader():
 
     def list_values_in_column_of_table_Generators_of_AirTable(self, name_of_column) -> list:
         data_frame = pd.read_json(path_or_buf = self.path_to_data + "AirTable/Generators.ndjson", lines = True)
-        data_frame[name_of_column] = data_frame[name_of_column].apply(
-            lambda x: np.nan if x == {'specialValue': 'NaN'} else x
-        )
+        if name_of_column == "Average Cost/REC":
+            data_frame[name_of_column] = data_frame[name_of_column].apply(
+                lambda x: np.nan if x == {'specialValue': 'NaN'} else x
+            )
+        elif name_of_column == "Locked Annuity Rate for Current Contract":
+            data_frame[name_of_column] = data_frame[name_of_column].apply(
+                lambda x: x[0] if isinstance(x, list) else x
+            )
         return data_frame[name_of_column].to_list()
 
 
