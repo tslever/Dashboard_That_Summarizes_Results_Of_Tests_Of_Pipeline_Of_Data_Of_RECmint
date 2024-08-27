@@ -1,5 +1,6 @@
 import json
 import ndjson
+import numpy as np
 import pandas as pd
 
 
@@ -181,15 +182,11 @@ class Loader():
 
 
     def list_values_in_column_of_table_Generators_of_AirTable(self, name_of_column) -> list:
-        list_of_values_in_column_of_table_Generators_of_AirTable = []
-        with open(self.path_to_data + "AirTable/Generators.ndjson", 'r') as file:
-            data = ndjson.load(file)
-            for record in data:
-                if name_of_column in record:
-                    list_of_values_in_column_of_table_Generators_of_AirTable.append(
-                        record[name_of_column]
-                    )
-        return list_of_values_in_column_of_table_Generators_of_AirTable
+        data_frame = pd.read_json(path_or_buf = self.path_to_data + "AirTable/Generators.ndjson", lines = True)
+        data_frame[name_of_column] = data_frame[name_of_column].apply(
+            lambda x: np.nan if x == {'specialValue': 'NaN'} else x
+        )
+        return data_frame[name_of_column].to_list()
 
 
     def list_values_in_column_of_table_Generators_of_RECBus(self, name_of_column) -> list:

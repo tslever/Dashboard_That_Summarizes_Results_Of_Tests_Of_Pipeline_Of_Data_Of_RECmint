@@ -11,6 +11,8 @@ from dashboard.tables.table_of_indices_of_rows_in_table_Generators_with_missing_
     table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
 from dashboard.tables.table_of_visualizations_of_AP_to_Date_of_tables_Generators import \
     table_of_visualizations_of_AP_to_Date_of_tables_Generators
+from dashboard.tables.table_of_visualizations_of_Average_Cost_Per_REC_of_tables_Generators import \
+    table_of_visualizations_of_Average_Cost_Per_REC_of_tables_Generators
 
 
 details_with_table_of_samples_of_table_Generators_Of_database = html.Details(
@@ -50,6 +52,14 @@ details_with_table_of_visualizations_of_AP_to_Date_of_tables_Generators = html.D
     style={"margin-left": "20px"}
 )
 
+details_with_table_of_visualizations_of_Average_Cost_Per_REC_of_tables_Generators = html.Details(
+    children = [
+        html.Summary("Table Of Visualizations Of Average Cost Per REC Of Tables Generators"),
+        table_of_visualizations_of_Average_Cost_Per_REC_of_tables_Generators
+    ],
+    style={"margin-left": "20px"}
+)
+
 details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators = html.Details(
     children = [
         html.Summary("Table Of Visualizations Of Nameplate / Nominal Power Of Tables Generators"),
@@ -63,6 +73,7 @@ details_of_details_of_visualizations = html.Details(
         html.Summary("Details Of Details Of Visualizations"),
         details_with_table_of_visualizations_of_AC_Capacity_of_tables_Generators,
         details_with_table_of_visualizations_of_AP_to_Date_of_tables_Generators,
+        details_with_table_of_visualizations_of_Average_Cost_Per_REC_of_tables_Generators,
         details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators
     ]
 )
