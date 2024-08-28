@@ -31,7 +31,7 @@ from dashboard.tables.table_of_visualizations_of_frequency_of_Specific_Yield_vs_
     table_of_visualizations_of_frequency_of_Specific_Yield_vs_Yield
 from dashboard.tables.table_of_visualizations_of_frequency_of_Number_Of_Mismatches_vs_Number import \
     table_of_visualizations_of_frequency_of_Number_Of_Mismatches_vs_Number
-from dashboard.tables.table_of_visualizations_of_frequency_of_Y1_RECs_vs_Y1_RECs import \
+from dashboard.tables.table_of_visualizations_of_frequency_of_Calculated_Y1_RECs_vs_Calculated_Y1_RECs import \
     table_of_visualizations_of_frequency_of_Y1_RECs_vs_Y1_RECs
 from dashboard.tables.table_of_visualizations_of_frequency_of_Year_Contract_Signed_vs_Year_Contract_Signed import \
     table_of_visualizations_of_frequency_of_Year_Contract_Signed_vs_Year_Contract_Signed
@@ -166,7 +166,7 @@ details_with_table_of_visualizations_of_Number_Of_Mismatches_vs_Number = html.De
 
 details_with_table_of_visualizations_of_Y1_RECs_vs_Y1_RECs = html.Details(
     children = [
-        html.Summary("Table Of Visualizations Of Frequency Of Y1 RECs vs. Y1 RECs"),
+        html.Summary("Table Of Visualizations Of Frequency Of Calculated Y1 RECs vs. Calculated Y1 RECs"),
         table_of_visualizations_of_frequency_of_Y1_RECs_vs_Y1_RECs
     ],
     style={"margin-left": "20px"}
