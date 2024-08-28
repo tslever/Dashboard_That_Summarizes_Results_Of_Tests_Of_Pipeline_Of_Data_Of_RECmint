@@ -8,7 +8,9 @@ class Loader():
 
 
     def __init__(self):
-        self.path_to_data = "C:/Users/Tom/Documents/RecMint/data/"
+        with open("config.json", 'r') as file:
+            config = json.load(file)
+            self.path_to_data = config.get("path_to_data")
 
 
     def count_columns_of_table_Generators_of_database_AirTable(self):
