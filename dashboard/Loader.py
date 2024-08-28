@@ -181,9 +181,11 @@ class Loader():
         return data_frame
 
 
-    def list_values_in_column_of_table_Generators_of_AirTable(self, name_of_column) -> list:
+    def list_values_in_column_of_table_Generators_of_AirTable(self, start_of_name_of_column) -> list:
         data_frame = pd.read_json(path_or_buf = self.path_to_data + "AirTable/Generators.ndjson", lines = True)
-        if name_of_column == "Average Cost/REC":
+        list_of_names_of_columns = [col for col in data_frame.columns if col.startswith(start_of_name_of_column)]
+        name_of_column = list_of_names_of_columns[0]
+        if name_of_column == "Average Cost/REC" or name_of_column.startswith("TEMP - GenSync row mismatch (expected RECs"):
             data_frame[name_of_column] = data_frame[name_of_column].apply(
                 lambda x: np.nan if x == {'specialValue': 'NaN'} else x
             )

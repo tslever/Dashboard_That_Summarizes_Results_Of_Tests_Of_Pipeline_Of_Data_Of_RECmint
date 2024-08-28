@@ -5,7 +5,9 @@ import plotly.express as px
 
 
 list_of_values_in_column_Count_Of_Generators_of_table_Generators_of_AirTable = \
-    loader.list_values_in_column_of_table_Generators_of_AirTable(name_of_column = "Count - Gen Sync Not Computed")
+    loader.list_values_in_column_of_table_Generators_of_AirTable(
+        start_of_name_of_column = "Count - Gen Sync Not Computed"
+    )
 
 histogram_of_frequency_of_Count_Of_Generators_vs_Count_per_table_Generators_of_AirTable = px.histogram(
     np.array(list_of_values_in_column_Count_Of_Generators_of_table_Generators_of_AirTable),

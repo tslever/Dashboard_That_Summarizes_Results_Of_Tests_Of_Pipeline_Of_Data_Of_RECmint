@@ -5,7 +5,9 @@ import plotly.express as px
 
 
 list_of_values_in_column_Average_Cost_Per_REC_of_table_Generators_of_AirTable = \
-    loader.list_values_in_column_of_table_Generators_of_AirTable(name_of_column = "Average Cost/REC")
+    loader.list_values_in_column_of_table_Generators_of_AirTable(
+        start_of_name_of_column = "Average Cost/REC"
+    )
 
 histogram_of_frequency_of_Average_Cost_Per_REC_vs_Cost_per_table_Generators_of_AirTable = px.histogram(
     np.log(np.array(list_of_values_in_column_Average_Cost_Per_REC_of_table_Generators_of_AirTable) + 1),

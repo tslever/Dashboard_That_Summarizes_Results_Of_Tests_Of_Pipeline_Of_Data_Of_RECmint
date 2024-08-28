@@ -5,7 +5,9 @@ import plotly.express as px
 
 
 list_of_values_in_column_Quantity_Of_Unpurchased_RECs_of_table_Generators_of_AirTable = \
-    loader.list_values_in_column_of_table_Generators_of_AirTable(name_of_column = "Qty Unpurchased RECs")
+    loader.list_values_in_column_of_table_Generators_of_AirTable(
+        start_of_name_of_column = "Qty Unpurchased RECs"
+    )
 
 histogram_of_frequency_of_Quantity_Of_Unpurchased_RECs_vs_Quantity_per_table_Generators_of_AirTable = px.histogram(
     np.log(np.array(list_of_values_in_column_Quantity_Of_Unpurchased_RECs_of_table_Generators_of_AirTable) + 1),

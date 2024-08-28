@@ -5,7 +5,9 @@ import plotly.express as px
 
 
 list_of_values_in_column_MS_of_table_Generators_of_AirTable = \
-    loader.list_values_in_column_of_table_Generators_of_AirTable(name_of_column = "M&S - Fee%")
+    loader.list_values_in_column_of_table_Generators_of_AirTable(
+        start_of_name_of_column = "M&S - Fee%"
+    )
 
 histogram_of_frequency_of_MS_vs_MS_per_table_Generators_of_AirTable = px.histogram(
     np.array(list_of_values_in_column_MS_of_table_Generators_of_AirTable),

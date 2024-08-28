@@ -5,7 +5,9 @@ import plotly.express as px
 
 
 list_of_values_in_column_of_Annuity_Rates_of_table_Generators_of_AirTable = \
-    loader.list_values_in_column_of_table_Generators_of_AirTable(name_of_column = "Locked Annuity Rate for Current Contract")
+    loader.list_values_in_column_of_table_Generators_of_AirTable(
+        start_of_name_of_column = "Locked Annuity Rate for Current Contract"
+    )
 
 histogram_of_frequency_of_Annuity_Rate_vs_Rate_per_table_Generators_of_AirTable = px.histogram(
     np.array(list_of_values_in_column_of_Annuity_Rates_of_table_Generators_of_AirTable),
