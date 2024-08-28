@@ -35,6 +35,8 @@ from dashboard.tables.table_of_visualizations_of_frequency_of_Y1_RECs_vs_Y1_RECs
     table_of_visualizations_of_frequency_of_Y1_RECs_vs_Y1_RECs
 from dashboard.tables.table_of_visualizations_of_frequency_of_Year_Contract_Signed_vs_Year_Contract_Signed import \
     table_of_visualizations_of_frequency_of_Year_Contract_Signed_vs_Year_Contract_Signed
+from dashboard.tables.table_of_visualizations_of_frequency_of_Zip_Code_vs_Zip_Code import \
+    table_of_visualizations_of_frequency_of_Zip_Code_vs_Zip_Code
 
 
 details_with_table_of_samples_of_table_Generators_Of_database = html.Details(
@@ -178,6 +180,14 @@ details_with_table_of_visualizations_of_Year_Contract_Signed_vs_Year_Contract_Si
     style={"margin-left": "20px"}
 )
 
+details_with_table_of_visualizations_of_Zip_Code_vs_Zip_Code = html.Details(
+    children = [
+        html.Summary("Table Of Visualizations Of Frequency Of Zip Code vs. Zip Code"),
+        table_of_visualizations_of_frequency_of_Zip_Code_vs_Zip_Code
+    ],
+    style={"margin-left": "20px"}
+)
+
 details_of_details_of_visualizations = html.Details(
     children = [
         html.Summary("Details Of Details Of Visualizations"),
@@ -195,6 +205,7 @@ details_of_details_of_visualizations = html.Details(
         details_with_table_of_visualizations_of_Specific_Yield_vs_Yield,
         details_with_table_of_visualizations_of_Number_Of_Mismatches_vs_Number,
         details_with_table_of_visualizations_of_Y1_RECs_vs_Y1_RECs,
-        details_with_table_of_visualizations_of_Year_Contract_Signed_vs_Year_Contract_Signed
+        details_with_table_of_visualizations_of_Year_Contract_Signed_vs_Year_Contract_Signed,
+        details_with_table_of_visualizations_of_Zip_Code_vs_Zip_Code
     ]
 )
