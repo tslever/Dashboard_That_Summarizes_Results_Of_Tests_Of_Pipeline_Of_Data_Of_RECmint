@@ -27,6 +27,8 @@ from dashboard.tables.table_of_visualizations_of_Quantity_Of_Unpurchased_RECs_vs
     table_of_visualizations_of_Quantity_Of_Unpurchased_RECs_vs_Quantity
 from dashboard.tables.table_of_visualizations_of_frequency_of_STT1_Revenue_vs_Revenue import \
     table_of_visualizations_of_frequency_of_STT1_Revenue_vs_Revenue
+from dashboard.tables.table_of_visualizations_of_frequency_of_Specific_Yield_vs_Yield import \
+    table_of_visualizations_of_frequency_of_Specific_Yield_vs_Yield
 
 
 details_with_table_of_samples_of_table_Generators_Of_database = html.Details(
@@ -138,6 +140,14 @@ details_with_table_of_visualizations_of_STT1_Revenue_vs_Revenue = html.Details(
     style={"margin-left": "20px"}
 )
 
+details_with_table_of_visualizations_of_Specific_Yield_vs_Yield = html.Details(
+    children = [
+        html.Summary("Table Of Visualizations Of Frequency Of Specific Yield vs. Yield"),
+        table_of_visualizations_of_frequency_of_Specific_Yield_vs_Yield
+    ],
+    style={"margin-left": "20px"}
+)
+
 details_of_details_of_visualizations = html.Details(
     children = [
         html.Summary("Details Of Details Of Visualizations"),
@@ -151,6 +161,7 @@ details_of_details_of_visualizations = html.Details(
         details_with_table_of_visualizations_of_frequency_of_MS_vs_MS,
         details_with_table_of_visualizations_of_Quantity_Of_Unpurchased_RECs_vs_Quantity,
         details_with_table_of_visualizations_of_Nameplate_and_nominal_power_of_tables_Generators,
-        details_with_table_of_visualizations_of_STT1_Revenue_vs_Revenue
+        details_with_table_of_visualizations_of_STT1_Revenue_vs_Revenue,
+        details_with_table_of_visualizations_of_Specific_Yield_vs_Yield
     ]
 )
