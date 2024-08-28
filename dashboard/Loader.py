@@ -185,13 +185,13 @@ class Loader():
         data_frame = pd.read_json(path_or_buf = self.path_to_data + "AirTable/Generators.ndjson", lines = True)
         list_of_names_of_columns = [col for col in data_frame.columns if col.startswith(start_of_name_of_column)]
         name_of_column = list_of_names_of_columns[0]
-        if name_of_column == "Average Cost/REC" or name_of_column.startswith("TEMP - GenSync row mismatch (expected RECs"):
-            data_frame[name_of_column] = data_frame[name_of_column].apply(
-                lambda x: np.nan if x == {'specialValue': 'NaN'} else x
-            )
-        elif name_of_column in ["Locked Annuity Rate for Current Contract", "M&S - Fee%"]:
+        if name_of_column in ["Locked Annuity Rate for Current Contract", "M&S - Fee%", "Year Contract Signed"]:
             data_frame[name_of_column] = data_frame[name_of_column].apply(
                 lambda x: x[0] if isinstance(x, list) else x
+            )
+        if name_of_column in ["Average Cost/REC", "Year Contract Signed"] or name_of_column.startswith("TEMP - GenSync row mismatch (expected RECs"):
+            data_frame[name_of_column] = data_frame[name_of_column].apply(
+                lambda x: np.nan if x == {'specialValue': 'NaN'} else x
             )
         return data_frame[name_of_column].to_list()
 
