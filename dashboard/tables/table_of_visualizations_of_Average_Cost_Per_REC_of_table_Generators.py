@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_Average_Cost_Per_REC_of_tables_Generators = Table(
+table_of_visualizations_of_Average_Cost_Per_REC_of_table_Generators = Table(
     children = list_of_rows,
     width = 100
 )
