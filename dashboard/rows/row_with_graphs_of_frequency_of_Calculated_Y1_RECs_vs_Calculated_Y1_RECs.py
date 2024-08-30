@@ -16,4 +16,4 @@ list_of_children = [
 ]
 
 
-row_with_graphs_of_frequency_of_Y1_RECs_vs_Y1_RECs = html.Tr(list_of_children)
+row_with_graphs_of_frequency_of_Calculated_Y1_RECs_vs_Calculated_Y1_RECs = html.Tr(list_of_children)
