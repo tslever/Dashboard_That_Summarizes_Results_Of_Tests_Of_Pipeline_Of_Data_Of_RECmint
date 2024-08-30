@@ -8,4 +8,4 @@ list_of_children = [
     Cell(sample_of_table_Generators_of_RECBus)
 ]
 
-row_with_samples_of_table_Generators_of_database = html.Tr(list_of_children)
+row_with_samples_of_table_Generators = html.Tr(list_of_children)

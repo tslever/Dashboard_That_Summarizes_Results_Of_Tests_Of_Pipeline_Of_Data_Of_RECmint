@@ -12,15 +12,17 @@ list_of_columns = [
     {"name": "Value Of Statistic For RECBus", "id": "Value Of Statistic For RECBus"}
 ]
 
+data = [
+    row_with_counts_of_columns_of_table_Generators,
+    row_with_counts_of_generators_in_database_that_do_not_correspond_to_generators_in_other_database,
+    row_with_counts_of_rows_of_table_Generators,
+    row_with_counts_of_rows_in_table_Generators_of_database_with_existing_GATS_ID_in_column_of_GATS_IDs_of_table_Generators_of_other_database,
+    row_with_counts_of_rows_of_table_Generators_without_GATS_ID
+]
+
 table_of_statistics_of_table_Generators = dash_table.DataTable(
     columns = list_of_columns,
-    data = [
-        row_with_counts_of_columns_of_table_Generators,
-        row_with_counts_of_generators_in_database_that_do_not_correspond_to_generators_in_other_database,
-        row_with_counts_of_rows_of_table_Generators,
-        row_with_counts_of_rows_in_table_Generators_of_database_with_existing_GATS_ID_in_column_of_GATS_IDs_of_table_Generators_of_other_database,
-        row_with_counts_of_rows_of_table_Generators_without_GATS_ID
-    ],
+    data = data,
     style_table = {"width": "100%"},
     style_cell = {
         "max-width": "0px",
