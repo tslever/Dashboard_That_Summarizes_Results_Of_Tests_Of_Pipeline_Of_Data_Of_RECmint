@@ -1,6 +1,10 @@
 import dash
 from dash import html
-from dashboard.headings import heading_Dashboard, heading_Executive_Summary, heading_Summary_Of_AB_Testing
+from dashboard.headings import (
+    heading_Dashboard,
+    heading_Executive_Summary,
+    heading_Summary_Of_AB_Testing
+)
 from dashboard.set_of_tabs import set_of_tabs
 
 

@@ -43,21 +43,21 @@ from dashboard.tables.table_of_visualizations_of_VA_LIQP_vs_VA_LIQP import \
     table_of_visualizations_of_VA_LIQP_vs_VA_LIQP
 
 
-details_with_table_of_samples_of_table_Generators_Of_database = html.Details(
+details_with_table_of_samples_of_table_Generators = html.Details(
     children = [
         html.Summary("Table Of Samples Of Table Generators Of Database"),
         table_of_samples_of_table_Generators
     ]
 )
 
-details_with_table_of_statistics_of_table_Generators_of_database = html.Details(
+details_with_table_of_statistics_of_table_Generators = html.Details(
     children = [
         html.Summary("Table Of Statistics Of Table Generators Of Database"),
         table_of_statistics_of_table_Generators
     ]
 )
 
-details_with_table_of_indices_of_rows_in_table_Generators_of_database_with_missing_GATS_ID = html.Details(
+details_with_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID = html.Details(
     children = [
         html.Summary("Table Of Indices Of Rows In Table Generators Of Database With Missing GATS ID"),
         table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
