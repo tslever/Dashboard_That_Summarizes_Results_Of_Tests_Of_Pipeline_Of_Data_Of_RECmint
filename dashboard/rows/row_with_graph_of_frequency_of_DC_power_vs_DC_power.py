@@ -4,18 +4,19 @@ from dashboard.graphs.graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_an
     graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus
 
 
+division_with_graph_of_frequency_of_DC_power_vs_DC_power = html.Div(
+    graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus,
+    style = {
+        "width": "50%",
+        "margin": "0 auto"
+    }
+)
+
 list_of_children = [
     Cell(
-        children = html.Div(
-            graph_of_frequency_of_DC_power_vs_DC_power_per_AirTable_and_RECBus,
-            style = {
-                "width": "50%",
-                "margin": "0 auto"
-            }
-        ),
+        children = division_with_graph_of_frequency_of_DC_power_vs_DC_power,
         colSpan = 2
     )
 ]
-
 
 row_with_graph_of_frequency_of_DC_power_vs_DC_power = html.Tr(list_of_children)

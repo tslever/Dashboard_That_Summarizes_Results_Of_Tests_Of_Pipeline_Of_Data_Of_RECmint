@@ -22,7 +22,7 @@ histogram_of_frequency_of_ac_capacity_vs_ac_capacity_per_table_Generators_of_Air
     showlegend = False
 )
 
-graph_of_frequency_of_ac_capacity_vs_ac_capacity_per_table_Generators_of_AirTable = dcc.Graph(
+graph_of_frequency_of_AC_Capacity_vs_AC_Capacity_per_table_Generators_of_AirTable = dcc.Graph(
     id = f"Histogram Of Frequency Of AC Capacity (kW AC) Vs. AC Capacity Per Table Generators Of AirTable",
     figure = histogram_of_frequency_of_ac_capacity_vs_ac_capacity_per_table_Generators_of_AirTable
 )
