@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_frequency_of_Number_Of_Mismatches_vs_Number = Table(
+table_of_visualizations_of_Number_Of_Mismatches_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )

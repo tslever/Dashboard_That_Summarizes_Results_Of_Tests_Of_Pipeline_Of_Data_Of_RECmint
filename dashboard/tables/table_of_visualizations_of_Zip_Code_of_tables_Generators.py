@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_frequency_of_Zip_Code_vs_Zip_Code = Table(
+table_of_visualizations_of_Zip_Code_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )

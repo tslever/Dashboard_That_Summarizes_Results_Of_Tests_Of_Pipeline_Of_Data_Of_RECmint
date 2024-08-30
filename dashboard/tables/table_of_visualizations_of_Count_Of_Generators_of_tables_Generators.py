@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_Count_Of_Generators_vs_Count = Table(
+table_of_visualizations_of_Count_Of_Generators_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )

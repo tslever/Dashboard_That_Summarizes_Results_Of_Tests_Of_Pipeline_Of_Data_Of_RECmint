@@ -23,6 +23,6 @@ histogram_of_frequency_of_VA_LIQP_vs_VA_LIQP_per_table_Generators_of_AirTable.up
 )
 
 graph_of_frequency_of_VA_LIQP_vs_VA_LIQP_per_table_Generators_of_AirTable = dcc.Graph(
-    id = f"Histogram Of Frequency Of Zip Code Vs. Zip Code Per Table Generators Of AirTable",
+    id = f"Histogram Of Frequency Of VA LIQP Vs. LIQP Per Table Generators Of AirTable",
     figure = histogram_of_frequency_of_VA_LIQP_vs_VA_LIQP_per_table_Generators_of_AirTable
 )

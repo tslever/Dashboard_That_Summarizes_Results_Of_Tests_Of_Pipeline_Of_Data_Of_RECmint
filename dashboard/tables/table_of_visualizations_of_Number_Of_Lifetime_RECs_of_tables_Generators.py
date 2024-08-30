@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_Number_Of_Lifetime_RECs_vs_Number = Table(
+table_of_visualizations_of_Number_Of_Lifetime_RECs_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )

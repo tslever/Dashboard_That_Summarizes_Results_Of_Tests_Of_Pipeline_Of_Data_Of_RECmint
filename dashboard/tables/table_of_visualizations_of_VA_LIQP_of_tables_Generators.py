@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_VA_LIQP_vs_VA_LIQP = Table(
+table_of_visualizations_of_VA_LIQP_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )

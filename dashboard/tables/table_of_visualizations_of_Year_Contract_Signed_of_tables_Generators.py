@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_frequency_of_Year_Contract_Signed_vs_Year_Contract_Signed = Table(
+table_of_visualizations_of_Year_Contract_Signed_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )

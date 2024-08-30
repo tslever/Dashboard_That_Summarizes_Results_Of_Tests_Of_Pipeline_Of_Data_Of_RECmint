@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_Quantity_Of_Unpurchased_RECs_vs_Quantity = Table(
+table_of_visualizations_of_Quantity_Of_Unpurchased_RECs_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )

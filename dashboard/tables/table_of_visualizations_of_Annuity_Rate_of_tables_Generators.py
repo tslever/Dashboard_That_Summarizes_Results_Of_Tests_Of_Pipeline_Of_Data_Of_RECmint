@@ -8,7 +8,7 @@ list_of_rows = [
 ]
 
 
-table_of_visualizations_of_Annuity_Rate_vs_Rate = Table(
+table_of_visualizations_of_Annuity_Rate_of_tables_Generators = Table(
     children = list_of_rows,
     width = 100
 )
