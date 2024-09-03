@@ -1,13 +1,14 @@
-from dashboard.rows.row_with_graphs_of_frequency_of_Nameplate_slash_nominal_power_vs_that_quantity \
-    import row_with_graphs_of_frequency_of_Nameplate_slash_nominal_power_vs_that_quantity
-from dashboard.rows.row_with_graph_of_frequency_of_DC_power_vs_DC_power \
-    import row_with_graph_of_frequency_of_DC_power_vs_DC_power
+from dashboard.Creator_Of_Row import creator_of_row
 from dashboard.Table import Table
 
 
 list_of_rows = [
-    row_with_graphs_of_frequency_of_Nameplate_slash_nominal_power_vs_that_quantity,
-    row_with_graph_of_frequency_of_DC_power_vs_DC_power
+    creator_of_row.create_row_of_graphs_of_frequency_of_quantity_vs_quantity(
+        quantity_in_AirTable = "Nameplate (kW DC)",
+        quantity_in_RECBus = "nominal-power",
+        log_should_be_applied = True
+    ),
+    creator_of_row.create_row_with_graph_of_frequency_of_DC_power_vs_DC_power()
 ]
 
 
