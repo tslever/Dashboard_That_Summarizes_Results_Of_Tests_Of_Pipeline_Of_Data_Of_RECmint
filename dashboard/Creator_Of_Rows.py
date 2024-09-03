@@ -113,4 +113,4 @@ class CreatorOfRow():
         return row_with_samples_of_table_Generators
 
 
-creator_of_row = CreatorOfRow()
+creator_of_rows = CreatorOfRow()
