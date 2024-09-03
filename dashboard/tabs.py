@@ -3,8 +3,8 @@ from dashboard.details import (
     details_with_table_of_samples_of_table_Generators,
     details_with_table_of_statistics_of_table_Generators,
     details_with_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID,
-    details_of_details_of_visualizations
 )
+from dashboard.Creator_Of_Details import creator_of_details
 
 
 tab_Contracts = dcc.Tab(
@@ -19,6 +19,6 @@ tab_Generators = dcc.Tab(
         details_with_table_of_samples_of_table_Generators,
         details_with_table_of_statistics_of_table_Generators,
         details_with_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID,
-        details_of_details_of_visualizations
+        creator_of_details.create_details_of_details_of_tables_of_visualizations_of_quantity()
     ]
 )
