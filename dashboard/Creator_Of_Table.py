@@ -5,6 +5,21 @@ from dashboard.Table import Table
 class CreatorOfTable():
 
 
+    def create_table_of_samples_of_table_Generators(self):
+
+        list_of_rows = [
+            creator_of_rows.create_row_of_samples_of_table_Generators()
+        ]
+
+
+        table_of_samples_of_table_Generators = Table(
+            children = list_of_rows,
+            width = 100
+        )
+
+        return table_of_samples_of_table_Generators
+
+
     def create_table_of_visualizations_of_quantity(
         self,
         quantity_in_AirTable: str,

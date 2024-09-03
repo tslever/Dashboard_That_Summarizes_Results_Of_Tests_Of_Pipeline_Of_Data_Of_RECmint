@@ -6,6 +6,16 @@ from dashboard.details import Details
 class Creator_Of_Details():
 
 
+    def create_details_of_table_of_samples_of_table_Generators(self):
+
+        details_with_table_of_samples_of_table_Generators = Details(
+            summary = "Table Of Samples Of Table Generators",
+            table = create_of_table.create_table_of_samples_of_table_Generators()
+        )
+
+        return details_with_table_of_samples_of_table_Generators
+
+
     def create_details_of_table_of_visualizations_of_quantity(
         self,
         quantity_in_AirTable: str,
