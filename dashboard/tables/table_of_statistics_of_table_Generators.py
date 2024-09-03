@@ -1,9 +1,6 @@
 from dash import dash_table
-from dashboard.rows.rows_with_statistics import row_with_counts_of_columns_of_table_Generators
-from dashboard.rows.rows_with_statistics import row_with_counts_of_generators_in_database_that_do_not_correspond_to_generators_in_other_database
-from dashboard.rows.rows_with_statistics import row_with_counts_of_rows_of_table_Generators
-from dashboard.rows.rows_with_statistics import row_with_counts_of_rows_of_table_Generators_without_GATS_ID
-from dashboard.rows.rows_with_statistics import row_with_counts_of_rows_in_table_Generators_of_database_with_existing_GATS_ID_in_column_of_GATS_IDs_of_table_Generators_of_other_database
+from dashboard.Creator_Of_Row import creator_of_row
+
 
 list_of_columns = [
     {"name": "Description Of Statistic For AirTable", "id": "Description Of Statistic For AirTable"},
@@ -12,17 +9,10 @@ list_of_columns = [
     {"name": "Value Of Statistic For RECBus", "id": "Value Of Statistic For RECBus"}
 ]
 
-data = [
-    row_with_counts_of_columns_of_table_Generators,
-    row_with_counts_of_generators_in_database_that_do_not_correspond_to_generators_in_other_database,
-    row_with_counts_of_rows_of_table_Generators,
-    row_with_counts_of_rows_in_table_Generators_of_database_with_existing_GATS_ID_in_column_of_GATS_IDs_of_table_Generators_of_other_database,
-    row_with_counts_of_rows_of_table_Generators_without_GATS_ID
-]
 
 table_of_statistics_of_table_Generators = dash_table.DataTable(
     columns = list_of_columns,
-    data = data,
+    data = creator_of_row.create_list_of_rows_of_statistics(),
     style_table = {"width": "100%"},
     style_cell = {
         "max-width": "0px",
