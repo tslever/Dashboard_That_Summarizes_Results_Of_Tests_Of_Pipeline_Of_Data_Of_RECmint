@@ -1,10 +1,13 @@
-from dashboard.rows.row_with_graphs_of_frequency_of_Average_Cost_Per_REC_vs_Cost \
-    import row_with_graphs_of_frequency_of_Average_Cost_Per_REC_vs_Cost
+from dashboard.Creator_Of_Row import creator_of_row
 from dashboard.Table import Table
 
 
 list_of_rows = [
-    row_with_graphs_of_frequency_of_Average_Cost_Per_REC_vs_Cost
+    creator_of_row.create_row_of_graphs_of_frequency_of_quantity_vs_quantity(
+        quantity_in_AirTable = "Average Cost/REC",
+        quantity_in_RECBus = None,
+        log_should_be_applied = True
+    )
 ]
 
 
