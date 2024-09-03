@@ -1,16 +1,15 @@
 from dashboard.Cell import Cell
 from dash import html
-from dashboard.graphs.graph_of_frequency_of_Number_Of_Mismatches_vs_Number_per_table_Generators_of_AirTable import \
-    graph_of_frequency_of_Number_Of_Mismatches_vs_Number_per_table_Generators_of_AirTable
+from dashboard.Grapher import grapher
 
 
 list_of_children = [
     Cell(
-        graph_of_frequency_of_Number_Of_Mismatches_vs_Number_per_table_Generators_of_AirTable,
+        grapher.graph_frequency_of_quantity_vs_quantity(name_of_database = "AirTable", quantity = "TEMP - GenSync row mismatch (expected RECs", log_should_be_applied = False),
         width = 50
     ),
     Cell(
-        [],
+        None,
         width = 50
     )
 ]
