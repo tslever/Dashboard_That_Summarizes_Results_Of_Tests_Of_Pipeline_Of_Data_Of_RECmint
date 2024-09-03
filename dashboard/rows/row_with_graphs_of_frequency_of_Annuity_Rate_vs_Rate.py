@@ -9,7 +9,7 @@ list_of_children = [
         width = 50
     ),
     Cell(
-        [],
+        None,
         width = 50
     )
 ]
