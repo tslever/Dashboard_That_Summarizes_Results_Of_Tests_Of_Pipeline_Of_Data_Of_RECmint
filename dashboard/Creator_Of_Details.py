@@ -57,14 +57,14 @@ class Creator_Of_Details():
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Lifetime RECs", quantity_in_RECBus = None, log_should_be_applied = True),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Locked Annuity Rate for Current Contract", quantity_in_RECBus = None, log_should_be_applied = False),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "M&S - Fee%", quantity_in_RECBus = None, log_should_be_applied = True),
-                self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Qty Unpurchased RECs", quantity_in_RECBus = None, log_should_be_applied = True),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Nameplate (kW DC)", quantity_in_RECBus = "nominal-power", log_should_be_applied = True),
+                self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Qty Unpurchased RECs", quantity_in_RECBus = None, log_should_be_applied = True),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "STT1 Revenue", quantity_in_RECBus = None, log_should_be_applied = False),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Specific Yield (given)", quantity_in_RECBus = None, log_should_be_applied = False),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "TEMP - GenSync row mismatch (expected RECs", quantity_in_RECBus = None, log_should_be_applied = False),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Y1 RECs (calc)", quantity_in_RECBus = None, log_should_be_applied = True),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Year Contract Signed", quantity_in_RECBus = None, log_should_be_applied = False),
-                self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Zip Code", quantity_in_RECBus = None, log_should_be_applied = False),
+                self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Zip Code", quantity_in_RECBus = "address/zipcode", log_should_be_applied = False),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "Modeled Y1 RECs", quantity_in_RECBus = None, log_should_be_applied = True),
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "VA LIQP", quantity_in_RECBus = None, log_should_be_applied = False)
             ]
