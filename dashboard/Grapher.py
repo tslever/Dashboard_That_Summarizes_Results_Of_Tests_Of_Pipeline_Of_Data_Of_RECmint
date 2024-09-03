@@ -14,7 +14,10 @@ class Grapher():
         log_should_be_applied: bool
     ) -> dcc.Graph:
 
-        list_of_values = loader.list_values_in_column_of_table_Generators(name_of_database = name_of_database, start_of_name_of_column = quantity)
+        if name_of_database == "AirTable and RECBus" and quantity == "DC power":
+            list_of_values = loader.list_DC_powers_in_AirTable_and_RECBus()
+        else:
+            list_of_values = loader.list_values_in_column_of_table_Generators(name_of_database = name_of_database, start_of_name_of_column = quantity)
         array_of_values = np.array(list_of_values)
 
         histogram = px.histogram(
