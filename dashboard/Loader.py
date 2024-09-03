@@ -223,7 +223,7 @@ class Loader():
         list_of_names_of_columns = [col for col in data_frame.columns if col.startswith(start_of_name_of_column)]
         name_of_column = list_of_names_of_columns[0]
 
-        if name_of_column in ["Locked Annuity Rate for Current Contract", "M&S - Fee%", "Year Contract Signed"]:
+        if name_of_column in ["Contract Term Length", "Locked Annuity Rate for Current Contract", "M&S - Fee%", "Year Contract Signed"]:
             data_frame[name_of_column] = data_frame[name_of_column].apply(
                 lambda x: x[0] if isinstance(x, list) else x
             )

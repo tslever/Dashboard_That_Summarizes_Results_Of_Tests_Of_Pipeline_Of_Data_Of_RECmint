@@ -58,7 +58,11 @@ details_with_table_of_visualizations_of_Count_Of_Contracts_of_table_Generators =
     indentation = 20
 )
 
-# Contract Term Length
+details_with_table_of_visualizations_of_Count_Of_Contracts_of_table_Generators = Details(
+    summary = "Table Of Visualizations Of Contract Term Length Of Tables Generators",
+    table = create_of_table.create_table_of_visualizations_of_quantity(quantity_in_AirTable = "Contract Term Length", quantity_in_RECBus = None, log_should_be_applied = False),
+    indentation = 20
+)
 
 details_with_table_of_visualizations_of_Count_Of_Generators_of_table_Generators = Details(
     summary = "Table Of Visualizations Of Count Of Generators Of Tables Generators",
