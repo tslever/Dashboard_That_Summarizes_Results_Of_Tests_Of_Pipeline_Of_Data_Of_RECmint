@@ -1,9 +1,33 @@
 from dash import html
 from dashboard.Cell import Cell
 from dashboard.Grapher import grapher
+from dashboard.samples import sample_of_table_Generators_of_AirTable, sample_of_table_Generators_of_RECBus
 
 
 class CreatorOfRow():
+
+
+    def create_row_with_graph_of_frequency_of_DC_power_vs_DC_power(self):
+
+        division_with_graph_of_frequency_of_DC_power_vs_DC_power = html.Div(
+            grapher.graph_frequency_of_quantity_vs_quantity(name_of_database = "AirTable and RECBus", quantity = "DC power", log_should_be_applied = True),
+            style = {
+                "width": "50%",
+                "margin": "0 auto"
+            }
+        )
+
+        list_of_children = [
+            Cell(
+                children = division_with_graph_of_frequency_of_DC_power_vs_DC_power,
+                colSpan = 2
+            )
+        ]
+
+        row_with_graph_of_frequency_of_DC_power_vs_DC_power = html.Tr(list_of_children)
+
+        return row_with_graph_of_frequency_of_DC_power_vs_DC_power
+
 
     def create_row_of_graphs_of_frequency_of_quantity_vs_quantity(
         self,
@@ -26,28 +50,18 @@ class CreatorOfRow():
         row_with_graphs_of_frequency_of_quantity_vs_quantity = html.Tr(list_of_children)
 
         return row_with_graphs_of_frequency_of_quantity_vs_quantity
-    
 
-    def create_row_with_graph_of_frequency_of_DC_power_vs_DC_power(self):
 
-        division_with_graph_of_frequency_of_DC_power_vs_DC_power = html.Div(
-            grapher.graph_frequency_of_quantity_vs_quantity(name_of_database = "AirTable and RECBus", quantity = "DC power", log_should_be_applied = True),
-            style = {
-                "width": "50%",
-                "margin": "0 auto"
-            }
-        )
+    def create_row_of_samples_of_table_Generators(self):
 
         list_of_children = [
-            Cell(
-                children = division_with_graph_of_frequency_of_DC_power_vs_DC_power,
-                colSpan = 2
-            )
+            Cell(sample_of_table_Generators_of_AirTable),
+            Cell(sample_of_table_Generators_of_RECBus)
         ]
 
-        row_with_graph_of_frequency_of_DC_power_vs_DC_power = html.Tr(list_of_children)
+        row_with_samples_of_table_Generators = html.Tr(list_of_children)
 
-        return row_with_graph_of_frequency_of_DC_power_vs_DC_power
+        return row_with_samples_of_table_Generators
 
 
 creator_of_row = CreatorOfRow()

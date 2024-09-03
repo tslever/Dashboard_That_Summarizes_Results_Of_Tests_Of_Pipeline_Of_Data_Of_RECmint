@@ -1,9 +1,9 @@
-from dashboard.rows.row_with_samples_of_table_Generators import row_with_samples_of_table_Generators
+from dashboard.Creator_Of_Row import creator_of_row
 from dashboard.Table import Table
 
 
 list_of_rows = [
-    row_with_samples_of_table_Generators
+    creator_of_row.create_row_of_samples_of_table_Generators()
 ]
 
 
