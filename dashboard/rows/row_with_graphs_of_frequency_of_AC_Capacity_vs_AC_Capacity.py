@@ -1,18 +1,15 @@
 from dashboard.Cell import Cell
 from dash import html
-from dashboard.graphs.graph_of_frequency_of_AC_Capacity_vs_AC_Capacity_per_table_Generators_of_AirTable import \
-    graph_of_frequency_of_AC_Capacity_vs_AC_Capacity_per_table_Generators_of_AirTable
-from dashboard.graphs.graph_of_frequency_of_nominal_power_AC_vs_nominal_power_AC_per_table_Generators_of_RECBus import \
-    graph_of_frequency_of_nominal_power_AC_vs_nominal_power_AC_per_table_Generators_of_RECBus
+from dashboard.Grapher import grapher
 
 
 list_of_children = [
     Cell(
-        graph_of_frequency_of_AC_Capacity_vs_AC_Capacity_per_table_Generators_of_AirTable,
+        grapher.graph_frequency_of_quantity_vs_quantity(name_of_database = "AirTable", quantity = "AC Capacity (kW AC)", log_should_be_applied = True),
         width = 50
     ),
     Cell(
-        graph_of_frequency_of_nominal_power_AC_vs_nominal_power_AC_per_table_Generators_of_RECBus,
+        grapher.graph_frequency_of_quantity_vs_quantity(name_of_database = "RECBus", quantity = "nominal-power-AC", log_should_be_applied = True),
         width = 50
     )
 ]

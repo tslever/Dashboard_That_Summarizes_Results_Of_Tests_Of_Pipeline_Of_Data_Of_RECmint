@@ -205,6 +205,34 @@ class Loader():
             header = 0
         )
         return data_frame[name_of_column].to_list()
+    
+
+    def list_values_in_column_of_table_Generators(self, name_of_database: str, start_of_name_of_column: str) -> list:
+
+        data_frame = None
+        if name_of_database == "AirTable":
+            data_frame = pd.read_json(path_or_buf = self.path_to_data + "AirTable/Generators.ndjson", lines = True)
+        elif name_of_database == "RECBus":
+            data_frame = pd.read_csv(
+                filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
+                header = 0
+            )
+        #filtered_data_frame = data_frame[data_frame["VA LIQP"].notna()][["GATS ID", "Product Tags"]]
+        #print(filtered_data_frame)
+
+        list_of_names_of_columns = [col for col in data_frame.columns if col.startswith(start_of_name_of_column)]
+        name_of_column = list_of_names_of_columns[0]
+
+        if name_of_column in ["Locked Annuity Rate for Current Contract", "M&S - Fee%", "Year Contract Signed"]:
+            data_frame[name_of_column] = data_frame[name_of_column].apply(
+                lambda x: x[0] if isinstance(x, list) else x
+            )
+        if name_of_column in ["Average Cost/REC", "Year Contract Signed"] or name_of_column.startswith("TEMP - GenSync row mismatch (expected RECs"):
+            data_frame[name_of_column] = data_frame[name_of_column].apply(
+                lambda x: np.nan if x == {'specialValue': 'NaN'} else x
+            )
+
+        return data_frame[name_of_column].to_list()
 
 
     def list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_GATS_ID(self):
