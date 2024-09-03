@@ -1,19 +1,33 @@
 from dash import html
 from dashboard.Creator_Of_Table import create_of_table
-from dashboard.details import Details
+from dashboard.Details import Details
 
 
 class Creator_Of_Details():
 
 
-    def create_details_of_table_of_samples_of_table_Generators(self):
+    def create_details_of_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID(self):
+        details_with_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID = Details(
+            summary = "Table Of Indices Of Rows In Table Generators With Missing GATS ID",
+            table = create_of_table.create_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID()
+        )
+        return details_with_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
 
+
+    def create_details_of_table_of_samples_of_table_Generators(self):
         details_with_table_of_samples_of_table_Generators = Details(
             summary = "Table Of Samples Of Table Generators",
             table = create_of_table.create_table_of_samples_of_table_Generators()
         )
-
         return details_with_table_of_samples_of_table_Generators
+
+
+    def create_details_of_table_of_statistics_of_table_Generators(self):
+        details_with_table_of_statistics_of_table_Generators = Details(
+            summary = "Table Of Statistics Of Table Generators",
+            table = create_of_table.create_table_of_statistics_of_table_Generators()
+        )
+        return details_with_table_of_statistics_of_table_Generators
 
 
     def create_details_of_table_of_visualizations_of_quantity(
@@ -22,18 +36,15 @@ class Creator_Of_Details():
         quantity_in_RECBus: str,
         log_should_be_applied: bool
     ):
-
         details_with_table_of_visualizations_of_quantity = Details(
             summary = f"Table Of Visualizations Of {quantity_in_AirTable} and {quantity_in_RECBus}",
             table = create_of_table.create_table_of_visualizations_of_quantity(quantity_in_AirTable = quantity_in_AirTable, quantity_in_RECBus = quantity_in_RECBus, log_should_be_applied = log_should_be_applied),
             indentation = 20
         )
-
         return details_with_table_of_visualizations_of_quantity
     
 
     def create_details_of_details_of_tables_of_visualizations_of_quantity(self):
-
         details_of_details_of_visualizations = html.Details(
             children = [
                 html.Summary("Details Of Details Of Visualizations"),
@@ -58,7 +69,6 @@ class Creator_Of_Details():
                 self.create_details_of_table_of_visualizations_of_quantity(quantity_in_AirTable = "VA LIQP", quantity_in_RECBus = None, log_should_be_applied = False)
             ]
         )
-
         return details_of_details_of_visualizations
 
 

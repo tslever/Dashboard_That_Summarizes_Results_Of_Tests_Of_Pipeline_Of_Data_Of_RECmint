@@ -1,14 +1,15 @@
-from dashboard.tables.table_of_statistics_of_table_Generators import table_of_statistics_of_table_Generators
-from dashboard.tables.table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID import table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
-from dashboard.class_Details import Details
+from dash import html
+from dash import dash_table
+from dashboard.Table import Table
 
 
-details_with_table_of_statistics_of_table_Generators = Details(
-    summary = "Table Of Statistics Of Table Generators",
-    table = table_of_statistics_of_table_Generators
-)
+class Details(html.Details):
 
-details_with_table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID = Details(
-    summary = "Table Of Indices Of Rows In Table Generators With Missing GATS ID",
-    table = table_of_indices_of_rows_in_table_Generators_with_missing_GATS_ID
-)
+    def __init__(self, summary: str, table: Table | dash_table.DataTable, indentation: int = None):
+        super().__init__(
+            children = [
+                html.Summary(summary),
+                table
+            ],
+            style = {} if indentation == None else {"margin-left": f"{indentation}px"}
+        )
