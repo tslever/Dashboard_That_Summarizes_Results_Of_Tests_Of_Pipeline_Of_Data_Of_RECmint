@@ -14,63 +14,34 @@ class Loader():
 
 
     def count_columns_of_table_Generators_of_database_AirTable(self):
-        maximum_number_of_keys = 0
-        with open(self.path_to_data + "AirTable/Generators.ndjson", 'r') as file:
-            for line in file:
-                JSON_object = json.loads(line)
-                number_of_keys = len(JSON_object.keys())
-                if number_of_keys > maximum_number_of_keys:
-                    maximum_number_of_keys = number_of_keys
+        data_frame = pd.read_json(self.path_to_data + "AirTable/Generators.ndjson", lines = True)
+        maximum_number_of_keys = data_frame.shape[1]
         return maximum_number_of_keys
     
 
     def count_columns_of_table_Generators_of_database_RECBus(self):
-        data_frame = pd.read_csv(
-            filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv",
-            header = 0,
-            nrows = 1
-        )
+        data_frame = pd.read_csv(filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv", header = 0, nrows = 1)
         count = len(data_frame.columns)
         return count
 
 
     def count_generators_in_AirTable_that_do_not_correspond_to_generators_in_RECBus(self):
-        dictionary_of_sets_of_GATS_IDs_in_table_Generators = \
-            self._create_dictionary_of_sets_of_GATS_IDs_in_table_Generators()
-        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = \
-            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
-                "set_of_GATS_IDs_in_table_Generators_of_database_AirTable"
-            ]
-        set_of_GATS_IDs_in_table_Generators_of_database_RECBus = \
-            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
-                "set_of_GATS_IDs_in_table_Generators_of_database_RECBus"
-            ]
-        
-        set_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
-            set_of_GATS_IDs_in_table_Generators_of_database_AirTable - \
-            set_of_GATS_IDs_in_table_Generators_of_database_RECBus
-        count_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = \
-            len(set_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators)
+        dictionary_of_sets_of_GATS_IDs_in_table_Generators = self._create_dictionary_of_sets_of_GATS_IDs_in_table_Generators()
+        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = dictionary_of_sets_of_GATS_IDs_in_table_Generators["set_of_GATS_IDs_in_table_Generators_of_database_AirTable"]
+        set_of_GATS_IDs_in_table_Generators_of_database_RECBus = dictionary_of_sets_of_GATS_IDs_in_table_Generators["set_of_GATS_IDs_in_table_Generators_of_database_RECBus"]
+
+        set_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = set_of_GATS_IDs_in_table_Generators_of_database_AirTable - set_of_GATS_IDs_in_table_Generators_of_database_RECBus
+        count_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators = len(set_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators)
         return count_of_GATS_IDs_that_are_in_AirTable_Generators_but_not_RECBus_Generators
     
 
     def count_generators_in_RECBus_that_do_not_correspond_to_generators_in_AirTable(self):
-        dictionary_of_sets_of_GATS_IDs_in_table_Generators = \
-            self._create_dictionary_of_sets_of_GATS_IDs_in_table_Generators()
-        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = \
-            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
-                "set_of_GATS_IDs_in_table_Generators_of_database_AirTable"
-            ]
-        set_of_GATS_IDs_in_table_Generators_of_database_RECBus = \
-            dictionary_of_sets_of_GATS_IDs_in_table_Generators[
-                "set_of_GATS_IDs_in_table_Generators_of_database_RECBus"
-            ]
+        dictionary_of_sets_of_GATS_IDs_in_table_Generators = self._create_dictionary_of_sets_of_GATS_IDs_in_table_Generators()
+        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = dictionary_of_sets_of_GATS_IDs_in_table_Generators["set_of_GATS_IDs_in_table_Generators_of_database_AirTable"]
+        set_of_GATS_IDs_in_table_Generators_of_database_RECBus = dictionary_of_sets_of_GATS_IDs_in_table_Generators["set_of_GATS_IDs_in_table_Generators_of_database_RECBus"]
         
-        set_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
-            set_of_GATS_IDs_in_table_Generators_of_database_RECBus - \
-            set_of_GATS_IDs_in_table_Generators_of_database_AirTable
-        count_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = \
-            len(set_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators)
+        set_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = set_of_GATS_IDs_in_table_Generators_of_database_RECBus - set_of_GATS_IDs_in_table_Generators_of_database_AirTable
+        count_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators = len(set_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators)
         return count_of_GATS_IDs_that_are_in_RecBus_Generators_but_not_AirTable_Generators
 
 
