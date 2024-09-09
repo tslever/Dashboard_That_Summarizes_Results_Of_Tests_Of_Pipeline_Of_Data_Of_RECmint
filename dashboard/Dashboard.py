@@ -10,7 +10,7 @@ from dashboard.set_of_tabs import set_of_tabs
 
 class Factory():
 
-    def create_dash(self):
+    def create_dashboard(self):
         app = dash.Dash(__name__)
 
         list_of_children = [
@@ -29,5 +29,5 @@ class Factory():
 if __name__ == "__main__":
 
     factory = Factory()
-    app = factory.create_dash()
+    app = factory.create_dashboard()
     app.run_server(debug = True)
