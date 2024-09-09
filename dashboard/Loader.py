@@ -53,16 +53,14 @@ class Loader():
     
 
     def count_rows_in_table_Generators_of_database_RECBus_with_existing_unit_id_in_column_GATS_ID_of_table_Generators_of_database_AirTable(self):
-        data_frame_representing_table_Generators_of_database_AirTable = self.data_frame_Generators_of_database_AirTable
         data_frame_Generators_of_database_RECBus = pd.read_csv(filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv", header = 0)
-        data_frame_of_matching_rows = data_frame_Generators_of_database_RECBus[data_frame_Generators_of_database_RECBus["unit-id"].isin(data_frame_representing_table_Generators_of_database_AirTable["GATS ID"])]
+        data_frame_of_matching_rows = data_frame_Generators_of_database_RECBus[data_frame_Generators_of_database_RECBus["unit-id"].isin(self.data_frame_Generators_of_database_AirTable["GATS ID"])]
         count_of_matching_rows = len(data_frame_of_matching_rows)
         return count_of_matching_rows
 
 
     def count_rows_of_table_Generators_of_database_AirTable(self):
-        data_frame = self.data_frame_Generators_of_database_AirTable
-        return len(data_frame)
+        return len(self.data_frame_Generators_of_database_AirTable)
     
 
     def count_rows_of_table_Generators_of_database_AirTable_without_key_GATS_ID(self):
@@ -82,9 +80,8 @@ class Loader():
 
 
     def _create_dictionary_of_sets_of_GATS_IDs_in_table_Generators(self):
-        data_frame_Generators_of_database_AirTable = self.data_frame_Generators_of_database_AirTable
         data_frame_Generators_of_database_RECBus = pd.read_csv(filepath_or_buffer = self.path_to_data + "RECBus/Generators.csv", header = 0)
-        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = set(data_frame_Generators_of_database_AirTable["GATS ID"])
+        set_of_GATS_IDs_in_table_Generators_of_database_AirTable = set(self.data_frame_Generators_of_database_AirTable["GATS ID"])
         set_of_GATS_IDs_in_table_Generators_of_database_RECBus = set(data_frame_Generators_of_database_RECBus["unit-id"])
         dictionary_of_sets_of_GATS_IDs_in_table_Generators = {
             "set_of_GATS_IDs_in_table_Generators_of_database_AirTable": set_of_GATS_IDs_in_table_Generators_of_database_AirTable,
@@ -94,8 +91,7 @@ class Loader():
     
 
     def create_excerpt_of_table_Generators_of_database_AirTable(self):
-        data_frame = self.data_frame_Generators_of_database_AirTable
-        data_frame = data_frame.head(n = 1)
+        data_frame = self.data_frame_Generators_of_database_AirTable.head(n = 1)
         data_frame = data_frame[sorted(data_frame.columns)]
         return data_frame
 
@@ -122,8 +118,7 @@ class Loader():
 
 
     def list_indices_of_rows_in_table_Generators_of_database_AirTable_with_missing_GATS_ID(self):
-        data_frame = self.data_frame_Generators_of_database_AirTable
-        data_frame_of_rows_missing_GATS_ID = data_frame[data_frame["GATS ID"].isna() | (data_frame["GATS ID"] == "")]
+        data_frame_of_rows_missing_GATS_ID = self.data_frame_Generators_of_database_AirTable[self.data_frame_Generators_of_database_AirTable["GATS ID"].isna() | (self.data_frame_Generators_of_database_AirTable["GATS ID"] == "")]
         list_of_indices_of_rows_with_missing_GATS_ID = data_frame_of_rows_missing_GATS_ID.index.to_list()
         return list_of_indices_of_rows_with_missing_GATS_ID
     
@@ -135,9 +130,8 @@ class Loader():
 
 
     def list_DC_powers_in_AirTable_and_RECBus(self):
-        data_frame_Generators_of_database_AirTable = self.data_frame_Generators_of_database_AirTable
         data_frame_Generators_of_database_RECBus = pd.read_csv(self.path_to_data + "RECBus/Generators.csv")
-        excerpt_of_data_frame_Generators_of_database_AirTable = data_frame_Generators_of_database_AirTable[["GATS ID", "Nameplate (kW DC)"]].rename(columns = {"Nameplate (kW DC)": "power"})
+        excerpt_of_data_frame_Generators_of_database_AirTable = self.data_frame_Generators_of_database_AirTable[["GATS ID", "Nameplate (kW DC)"]].rename(columns = {"Nameplate (kW DC)": "power"})
         excerpt_of_data_frame_Generators_of_database_RECBus = data_frame_Generators_of_database_RECBus[["unit-id", "nominal-power"]].rename(columns = {"nominal-power": "power"})
         unioned_excerpts = pd.concat([excerpt_of_data_frame_Generators_of_database_AirTable, excerpt_of_data_frame_Generators_of_database_RECBus]).drop_duplicates()
         list_of_powers_in_AirTable_and_RECBus = unioned_excerpts["power"].to_list()
